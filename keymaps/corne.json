@@ -1,0 +1,19 @@
+{
+	"author": "",
+	"documentation": "Wrapper based keymap",
+	"keyboard": "crkbd/rev1",
+	"keymap": "jbarr21",
+	"layout": "LAYOUT_corne_w",
+	"layers": [
+		[ "_DEF" ],
+		[ "_NAV" ],
+		[ "_NUM" ],
+		[ "_MOU" ],
+		[ "_SYM" ],
+		[ "_FUN" ],
+		[ "_IDE" ],
+		[ "_LCK" ]
+	],
+	"notes": "",
+	"version": 1
+}
