@@ -39,10 +39,10 @@
 #define OSM_CTL OSM(MOD_LCTL)
 
 // OS X shortcuts
-#define OSX_UND	G(KC_Z)
-#define OSX_CUT	G(KC_X)
-#define OSX_CPY	G(KC_C)
-#define OSX_PST	G(KC_V)
+#define UNDO	G(KC_Z)
+#define CUT     G(KC_X)
+#define COPY	G(KC_C)
+#define PASTE	G(KC_V)
 
 #define EMOJ     G(C(KC_SPC))
 #define ALFR     G(KC_SPC)
@@ -78,12 +78,12 @@
     KC_NO,   KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSLS, \
     KC_ESC,  CTL_A,   ALT_R,   SFT_S,   hrGUI_T, KC_D,        KC_H,    GUI_N,   SFT_E,   ALT_I,   CTL_O,   KC_QUOT, \
     CAPSWRD, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO,   \
-         KC_MOU_EMOJ, LT(NAV,KC_BSPC), LT(NUM,KC_TAB),        RSFT_T(KC_ENT), LT(SYM,KC_SPC), KC_IDE_ALFR
+      LT(MOU,KC_ESC), LT(NAV,KC_BSPC), LT(NUM,KC_TAB),        RSFT_T(KC_ENT), LT(SYM,KC_SPC), KC_IDE_ALFR
 
 #define _NAV \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, HIST_BK, TAB_LT,  TAB_RT,  HIST_FW, XXXXXXX, \
     XXXXXXX, OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, \
-    XXXXXXX, OSX_UND, OSX_CUT, OSX_CPY, OSX_PST, XXXXXXX,     XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  LLOCK,   \
+    XXXXXXX, UNDO,    CUT,     COPY,    PASTE,   XXXXXXX,     XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  LLOCK,   \
                                XXXXXXX, XXXXXXX, XXXXXXX,     KC_ENT, G(KC_GRV), XXXXXXX
 
 #define _NUM \

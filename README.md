@@ -12,4 +12,4 @@ qmk compile users/jbarr21/keymaps/<keyboard>.json
 
 The keymap for above keyboards follows my ZMK keymap that you can see in my [zmk-config repo](https://github.com/jbarr21/zmk-config/).
 
-![QMK Layout](https://jamesbarr.dev/keyboard/layout.png)
+![QMK Layout](keyboard-layout.png)
