@@ -10,9 +10,9 @@ import urllib.parse
 
 # KLE JSON for a 3x6+3
 KLE_LAYOUT = dedent('''
-    [{a:7,f:3},"","","","","","",{x:3},"","","","","",""],
-    ["","","","","","",{x:3},"","","","","",""],
-    ["","","","","","",{x:3},"","","","","",""],
+    [{a:7,f:3},{y:0.3},"","",{y:-0.2},"",{y:-0.1},"",{y:0.1},"",{y:0.2},"",{x:3},"",{y:-0.1},"",{y:-0.1},"",{y:0.1},"",{y:0.2},"","",{y:-0.4}],
+    [{y:0.3},"","",{y:-0.2},"",{y:-0.1},"",{y:0.1},"",{y:0.2},"",{x:3},"",{y:-0.1},"",{y:-0.1},"",{y:0.1},"",{y:0.2},"","",{y:-0.4}],
+    [{y:0.3},"","",{y:-0.2},"",{y:-0.1},"",{y:0.1},"",{y:0.2},"",{x:3},"",{y:-0.1},"",{y:-0.1},"",{y:0.1},"",{y:0.2},"",""],
     [{x:4,y:0.5},"","",{h:1.5,y:-0.5},"",{x:1},{h:1.5},"",{y:0.5},"",""],
 ''')
 
@@ -113,14 +113,12 @@ class Key:
         if encoded:
             if label in kle_chars_needing_escaping:
                 label = '/' + label
-        else:
-            if label == '\\':
-                label = '\\\\'
 
         if self.hold is not None:
             label += f"\n\n\n\n{self.hold}"
-            if not encoded:
-                label.replace('\n', '\\n')
+
+        if not encoded:
+            label = label.replace('\\', '\\\\').replace('\n', '\\n')
  
         return urllib.parse.quote(label).replace('/', '%2F') if encoded else label
 
@@ -148,10 +146,13 @@ class Layer:
         item = 0
         index = text.find('""', 0)
         while index >= 0:
-            if encoded:
-                text = text[:index] + '=' + replacements[item] + text[index+2:]
-            else:
-                text = text[:index+1] + replacements[item] + text[index+1:]
+            try:
+                if encoded:
+                    text = text[:index] + '=' + replacements[item] + text[index+2:]
+                else:
+                    text = text[:index+1] + replacements[item] + text[index+1:]
+            except Exception as ex:
+                exit(str(ex) + f" index={index}, textLen={len(text)}, text={text}")
             index = text.find('""', index+1)
             item+=1
         return text

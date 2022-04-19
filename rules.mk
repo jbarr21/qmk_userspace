@@ -5,6 +5,7 @@ COMMAND_ENABLE = no
 
 SRC += features/caps_word.c
 SRC += features/layer_lock.c
+SRC += features/oneshot.c
 
 SRC += features/combos.c
 COMBO_ENABLE = yes
