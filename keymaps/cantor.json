@@ -1,0 +1,18 @@
+{
+    "author": "",
+    "documentation": "Wrapper based keymap",
+    "keyboard": "cantor",
+    "keymap": "jbarr21",
+    "layout": "LAYOUT_corne_w",
+    "layers": [
+        [ "_DEF" ],
+        [ "_SYM" ],
+        [ "_NAV" ],
+        [ "_NUM" ],
+        [ "_FUN" ],
+        [ "_IDE" ],
+        [ "_MOU" ]
+    ],
+    "notes": "",
+    "version": 1
+}
