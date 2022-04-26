@@ -7,185 +7,200 @@ void keyboard_post_init_user(void) {
   rgb_matrix_enable();
 }
 
-// colors
-#define ____           {0,0,0}
+// colors (HSV)
+#define ___            {0,0,0}
+#define ______         {0,0,0}
 #define BLUE     {154,255,255}
-#define RED_PNK  {249,228,255}
+#define REDPNK   {249,228,255}
 #define GREEN    {105,255,255}
 #define YELLOW   { 35,255,255}
 #define ORANGE   { 14,255,255}
 #define PURPLE   {206,255,255}
 #define GRAY     {  0,  0,183}
+#define WHITE    {  0,  0,255}
 #define RED      {  0,255,255}
+
+#ifdef HRM_ENABLE
+#define HR REDPNK       
+#else
+#define HR WHITE       
+#endif
 
 // left then right hand, top to bottom moving inward
 const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
+    // DEF
     [0] = {
-      ____, BLUE, BLUE, ORANGE, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, GREEN,
-      ____, BLUE, BLUE, BLUE,
-      ____, ____, ____,
-      BLUE, BLUE, ____,
-      YELLOW,
-      ____, BLUE, BLUE, YELLOW, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, PURPLE,
-      ____, BLUE, BLUE, BLUE,
-      ____, ____, ____,
-      BLUE, ORANGE, ____,
+      ______, BLUE, BLUE, GREEN, ______, \
+      ______, BLUE, HR,   BLUE, ______, \
+      ______, BLUE, HR,   BLUE, ______, \
+      ______, BLUE, HR,   BLUE, ______, \
+      ______, BLUE, HR,   BLUE, RED, \
+      ______, BLUE, BLUE, BLUE, \
+      ______, ______, ______, \
+      BLUE, BLUE, ______, \
+      YELLOW, \
+      ______, BLUE, BLUE, PURPLE, ______, \
+      ______, BLUE, HR,   BLUE, ______, \
+      ______, BLUE, HR,   BLUE, ______, \
+      ______, BLUE, HR,   BLUE, ______, \
+      ______, BLUE, HR,   BLUE, GREEN, \
+      ______, BLUE, BLUE, BLUE, \
+      ______, ______, ______, \
+      BLUE, ORANGE, ______, \
       GREEN
     },
 
+    // SYM
     [1] = {
-      ____, ____, ____, ____, ____,
-      ____, ____, RED_PNK, ORANGE, ____,
-      ____, ____, RED_PNK, ORANGE, ____,
-      ____, ____, RED_PNK, ORANGE, ____,
-      ____, ____, RED_PNK, ORANGE, ____,
-      ____, ____, ____, ____,
-      ____, ____, ____,
-      ____, ____, ____,
+      ______, ______, ______, ______, ______,
+      ______, BLUE, BLUE, BLUE, ______,
+      ______, BLUE, BLUE, BLUE, ______,
+      ______, BLUE, BLUE, BLUE, ______,
+      ______, BLUE, BLUE, BLUE, ______,
+      ______, BLUE, BLUE, BLUE,
+      ______, ______, ______,
+      ______, ______, ______,
+      ______,
+      ______, ______, ______, YELLOW, ______,
+      ______, BLUE, REDPNK, BLUE, ______,
+      ______, BLUE, REDPNK, BLUE, ______,
+      ______, BLUE, REDPNK, BLUE, ______,
+      ______, BLUE, REDPNK, BLUE, ______,
+      ______, BLUE, BLUE, BLUE,
+      ______, ______, ______,
+      ______, ______, ______,
+      ______
+    },
+    
+    // NAV
+    [2] = {
+      ______, ______, ______, ______, ______,
+      ______, GREEN, REDPNK, BLUE, ______,
+      ______, GREEN, REDPNK, BLUE, ______,
+      ______, GREEN, REDPNK, BLUE, ______,
+      ______, GREEN, REDPNK, BLUE, ______,
+      ______, ORANGE, ORANGE, ORANGE,
+      ______, ______, ______,
+      ______, ______, ______,
       YELLOW,
-      ____, ____, ____, YELLOW, ____,
-      ____, YELLOW, GREEN, BLUE, ____,
-      ____, YELLOW, GREEN, BLUE, ____,
-      ____, YELLOW, GREEN, BLUE, ____,
-      ____, YELLOW, GREEN, BLUE, ____,
-      ____, ____, ____, ____,
-      ____, ____, ____,
-      YELLOW, GREEN, ____,
+      ______, ______, ______, YELLOW, ______,
+      ______, YELLOW, GREEN, BLUE, ______,
+      ______, YELLOW, GREEN, BLUE, ______,
+      ______, YELLOW, GREEN, BLUE, ______,
+      ______, YELLOW, GREEN, BLUE, ______,
+      ______, ______, ORANGE, ______,
+      ______, ______, ______,
+      ______, ______, ______,
       GREEN
     },
 
-    [2] = {
-      ____, ____, ____, ____, ____,
-      ____, GREEN, RED_PNK, YELLOW, ____,
-      ____, GREEN, RED_PNK, YELLOW, ____,
-      ____, GREEN, RED_PNK, YELLOW, ____,
-      ____, GREEN, RED_PNK, YELLOW, ____,
-      ____, ORANGE, ORANGE, ORANGE,
-      ____, ____, ____,
-      YELLOW, ____, ____,
-      ____,
-      ____, ____, ____, YELLOW, ____,
-      ____, YELLOW, BLUE, BLUE, ____,
-      ____, GREEN, GREEN, GREEN, ____,
-      ____, GREEN, GREEN, GREEN, ____,
-      ____, GREEN, GREEN, GREEN, GREEN,
-      ____, YELLOW, BLUE, BLUE,
-      ____, ____, ____,
-      YELLOW, RED_PNK, ____,
-      ____
-    },
-
+    // NUM
     [3] = {
-      ____, ____, ____, ____, ____,
-      ____, ____, RED_PNK, ____, ____,
-      ____, ____, RED_PNK, ____, ____,
-      ____, ____, RED_PNK, ____, ____,
-      ____, ____, RED_PNK, ____, ____,
-      ____, ____, ____, ____,
-      ____, ____, ____,
-      ____, ____, ____,
-      ____,
-      ____, ____, ____, YELLOW, ____,
-      ____, YELLOW, GREEN, BLUE, ____,
-      ____, YELLOW, GREEN, BLUE, ____,
-      ____, YELLOW, GREEN, BLUE, ____,
-      ____, YELLOW, GREEN, BLUE, ____,
-      ____, ____, ORANGE, ____,
-      ____, ____, ____,
-      GREEN, GREEN, ____,
-      ____
+      ______, ______, ______, ______, ______,
+      ______, ______, REDPNK, ______, ______,
+      ______, ______, REDPNK, ______, ______,
+      ______, ______, REDPNK, ______, ______,
+      ______, ______, REDPNK, YELLOW, ______,
+      ______, ______, ______, ______,
+      ______, ______, ______,
+      ______, ______, ______,
+      YELLOW,
+      ______, ______, ______, YELLOW, ______,
+      ______, ______, ______, ______, ______,
+      ______, GREEN, GREEN, GREEN, ______,
+      ______, GREEN, GREEN, GREEN, ______,
+      ______, GREEN, GREEN, GREEN, GREEN,
+      ______, ______, ______, ______,
+      ______, ______, ______,
+      YELLOW, REDPNK, ______,
+      GREEN
+
+    /* Callum NUM   
+      ______, ______, ______, ______, ______,
+      ______, GREEN, REDPNK, YELLOW, ______,
+      ______, GREEN, REDPNK, YELLOW, ______,
+      ______, GREEN, REDPNK, YELLOW, ______,
+      ______, GREEN, REDPNK, YELLOW, ______,
+      ______, GREEN, ORANGE, YELLOW,
+      ______, ______, ______,
+      ______, ______, ______,
+      ______,
+      ______, ______, ______, YELLOW, ______,
+      ______, GREEN, REDPNK, YELLOW, ______,
+      ______, GREEN, REDPNK, YELLOW, ______,
+      ______, GREEN, REDPNK, YELLOW, ______,
+      ______, GREEN, REDPNK, YELLOW, ______,
+      ______, GREEN, ORANGE, YELLOW,
+      ______, ______, ______,
+      ______, ______, ______,
+      ______
+    */
     },
 
+    // FUN
     [4] = {
-      ____, ____, ____, ____, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, BLUE, BLUE,
-      ____, ____, ____,
-      ORANGE, ____, ____,
-      ____,
-      ____, ____, ____, YELLOW, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, RED_PNK, BLUE, ____,
-      ____, BLUE, BLUE, BLUE,
-      ____, ____, ____,
-      ____, ____, ____,
-      ____
+      ______, ______, ______, ______, ______,
+      ______, ______, REDPNK, ______, ______,
+      ______, ______, REDPNK, ______, ______,
+      ______, ______, REDPNK, ______, ______,
+      ______, ______, REDPNK, ______, ______,
+      ______, ______, ______, ______,
+      ______, ______, ______,
+      ______, ______, ______,
+      YELLOW,
+      ______, ______, ______, YELLOW, ______,
+      ______, ORANGE, ORANGE, ORANGE, ______,
+      ______, YELLOW, YELLOW, YELLOW, ______,
+      ______, YELLOW, YELLOW, YELLOW, ______,
+      ______, YELLOW, YELLOW, YELLOW, ______,
+      ______, ORANGE, ORANGE, ORANGE,
+      ______, ______, ______,
+      ______, ______, ______,
+      GREEN
     },
 
+    // IDE
     [5] = {
-      ____, ____, ____, ____, ____,
-      ____, ____, RED_PNK, ____, ____,
-      ____, ____, RED_PNK, ____, ____,
-      ____, ____, RED_PNK, ____, ____,
-      ____, ____, RED_PNK, ____, ____,
-      ____, ____, ____, ____,
-      ____, ____, ____,
-      ____, ____, ____,
-      ____,
-      ____, ORANGE, ORANGE, ORANGE, ____,
-      ____, ORANGE, ORANGE, ORANGE, ____,
-      ____, YELLOW, YELLOW, YELLOW, ____,
-      ____, YELLOW, YELLOW, YELLOW, ____,
-      ____, YELLOW, YELLOW, YELLOW, ____,
-      ____, ____, ____, ____,
-      ____, ____, ____,
-      ____, ____, ____,
-      ____
+      ______, RED, ______, ______, ______,
+      ______, ______, PURPLE, PURPLE, ______,
+      ______, ______, ______, PURPLE, ______,
+      ______, ______, PURPLE, PURPLE, ______,
+      ______, ______, PURPLE, PURPLE, REDPNK,
+      ______, ______, ______, PURPLE,
+      ______, ______, ______,
+      YELLOW, GREEN, ______,
+      ______,
+      ______, RED, ______, YELLOW, ______,
+      ______, ______, ______, ______, ______,
+      ______, ______, GREEN, ______, ______,
+      ______, GREEN, GREEN, ______, ______,
+      ______, ______, GREEN, ______, ______,
+      ______, ______, ______, ______,
+      ______, ______, ______,
+      ______, ______, ______,
+      ______
     },
 
+    // MOU
     [6] = {
-      ____, GRAY, ____, ____, ____,
-      ____, ____, PURPLE, PURPLE, ____,
-      ____, ____, PURPLE, PURPLE, ____,
-      ____, ____, PURPLE, PURPLE, ____,
-      ____, ____, PURPLE, PURPLE, RED_PNK,
-      ____, ____, ____, PURPLE,
-      ____, ____, ____,
-      YELLOW, GREEN, ____,
-      ____,
-      ____, RED, ____, YELLOW, ____,
-      ____, ____, ____, ____, ____,
-      ____, ____, GREEN, ____, ____,
-      ____, GREEN, GREEN, ____, ____,
-      ____, ____, GREEN, ____, ____,
-      ____, ____, ____, ____,
-      ____, ____, ____,
-      ____, ____, ____,
-      ____
-    },
-
-    [7] = {
-      ____, ____, ____, ____, ____,
-      ____, ____, ____, ____, ____,
-      ____, ____, ____, ____, ____,
-      ____, ____, ____, ____, ____,
-      ____, ____, ____, ____, ____,
-      ____, ____, ____, ____,
-      ____, ____, ____,
-      ____, ____, ____,
-      ____,
-      ____, ____, ____, ____, ____,
-      ____, ____, ____, ____, ____,
-      ____, ____, ____, ____, ____,
-      ____, GRAY, ____, ____, ____,
-      ____, ____, ____, ____, ____,
-      ____, ____, ____, ____,
-      ____, ____, ____,
-      ____, ____, ____,
-      ____
+      ______, ______, ______, ______, ______,
+      ______, ______, REDPNK, ______, ______,
+      ______, ______, REDPNK, ______, ______,
+      ______, ______, REDPNK, ______, ______,
+      ______, ______, REDPNK, ______, ______,
+      ______, ______, ______, ______,
+      ______, ______, ______,
+      ______, ______, ______,
+      ______,
+      ______, ______, ______, YELLOW, ______,
+      ______, ______, GREEN, BLUE, ______,
+      ______, ______, GREEN, BLUE, ______,
+      ______, ______, GREEN, BLUE, ______,
+      ______, ______, GREEN, BLUE, ______,
+      ______, ______, ORANGE, ______,
+      ______, ______, ______,
+      GREEN, GREEN, ______,
+      ______
     },
 };
 

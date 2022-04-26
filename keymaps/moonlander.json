@@ -5,14 +5,13 @@
 	"keymap": "jbarr21",
 	"layout": "LAYOUT_moonlander_w",
 	"layers": [
-		[ "C_ML(_DEF)" ],
-		[ "C_ML(_NAV)" ],
-		[ "C_ML(_NUM)" ],
-		[ "C_ML(_MOU)" ],
-		[ "C_ML(_SYM)" ],
-		[ "C_ML(_FUN)" ],
-		[ "C_ML(_IDE)" ],
-		[ "C_ML(_LCK)" ]
+        [ "C_ML(_DEF)" ],
+        [ "C_ML(_SYM)" ],
+        [ "C_ML(_NAV)" ],
+        [ "C_ML(_NUM)" ],
+        [ "C_ML(_FUN)" ],
+        [ "C_ML(_IDE)" ],
+        [ "C_ML(_MOU)" ]
 	],
 	"notes": "",
 	"version": 1

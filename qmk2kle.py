@@ -96,7 +96,10 @@ class Key:
                 tap = tap[1:]
             self.tap = f"{qmk_to_name.get(tap, tap)}<br>OSM"
             self.hold = None
-        elif aliased.startswith('TO('):
+        elif aliased.startswith('TO(') or aliased.startswith('MO('):
+            self.tap = aliased.replace('(', ' ').replace(')', '')
+            self.hold = None
+        elif aliased.startswith('OSL('):
             self.tap = aliased.replace('(', ' ').replace(')', '')
             self.hold = None
         elif any([code.startswith(f"{mod}_") for mod in MODS]):
