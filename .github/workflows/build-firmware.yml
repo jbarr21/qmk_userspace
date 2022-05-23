@@ -60,7 +60,7 @@ jobs:
           - bm16s
     steps:
     - name: Checkout QMK/QMK
-      if: matrix.keyboard != 'moonlander' && matrix.keyboard != 'cantor'
+      if: matrix.keyboard != 'moonlander'
       uses: actions/checkout@v2
       with:
         repository: qmk/qmk_firmware
@@ -73,14 +73,6 @@ jobs:
       with:
         repository: zsa/qmk_firmware
         ref: firmware20
-        persist-credentials: false
-        submodules: recursive
-    - name: Checkout Cantor's QMK
-      if: matrix.keyboard == 'cantor'
-      uses: actions/checkout@v2
-      with:
-        repository: diepala/qmk_firmware
-        ref: cantor
         persist-credentials: false
         submodules: recursive
     - name: Checkout userspace
