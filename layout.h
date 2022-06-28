@@ -84,7 +84,7 @@
     KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSLS, \
     KC_ESC,  HR_A,    HR_R,    HR_S,    HR_T,    KC_D,        KC_H,    HR_N,    HR_E,    HR_I,    HR_O,    KC_QUOT, \
     MO(MOU), KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSL(IDE), \
-             KC_BSPC, LT(NAV,KC_BSPC), LT(NUM,KC_TAB),        RSFT_T(KC_ENT),  LT(SYM,KC_SPC), KC_ENT
+     LT(MOU,KC_BSPC), LT(NAV,KC_BSPC), LT(NUM,KC_TAB),        RSFT_T(KC_ENT),  LT(SYM,KC_SPC), LT(IDE,KC_SPC)
 
 #define _SYM \
     XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX, \
@@ -102,7 +102,7 @@
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX, XXXXXXX, \
     XXXXXXX, OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     XXXXXXX, KC_4,    KC_5,    KC_6,    XXXXXXX, XXXXXXX, \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, OSL(FUN), XXXXXXX,    XXXXXXX, KC_1,    KC_2,    KC_3,    XXXXXXX, LLOCK,   \
-                               XXXXXXX, XXXXXXX, XXXXXXX,     KC_ENT,  KC_DOT, KC_0
+                               XXXXXXX, XXXXXXX, XXXXXXX,     LT(FUN, KC_ENT),  KC_DOT, KC_0
 
 #define _FUN \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_F15,  XXXXXXX,  \
