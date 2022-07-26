@@ -1,10 +1,9 @@
 SRC += jbarr21.c
 
-CAPS_WORD_ENABLE = no
+CAPS_WORD_ENABLE = yes
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
 
-SRC += features/caps_word.c
 SRC += features/layer_lock.c
 SRC += features/oneshot.c
 
