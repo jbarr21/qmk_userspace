@@ -74,7 +74,7 @@
 // custom keycodes
 #define MY_SAFE_RANGE 0xfff0
 #define LLOCK         MY_SAFE_RANGE+1
-#define CAPSWRD       MY_SAFE_RANGE+2
+#define CAP_WRD       MY_SAFE_RANGE+2
 #define OS_GUI        MY_SAFE_RANGE+3
 #define OS_SFT        MY_SAFE_RANGE+4
 #define OS_ALT        MY_SAFE_RANGE+5

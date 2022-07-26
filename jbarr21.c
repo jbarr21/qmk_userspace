@@ -38,14 +38,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
     
     if (record->event.pressed) {
-        process_caps_word(keycode, record, CAPSWRD);
+        process_caps_word(keycode, record, CAP_WRD);
     }
 
     update_oneshot(&os_shft_state, KC_LSFT, OS_SFT, keycode, record);
     update_oneshot(&os_ctrl_state, KC_LCTL, OS_CTL, keycode, record);
     update_oneshot(&os_alt_state, KC_LALT, OS_ALT, keycode, record);
     update_oneshot(&os_cmd_state, KC_LCMD, OS_GUI, keycode, record);
-
 
     return true;
 }

@@ -1,5 +1,6 @@
 SRC += jbarr21.c
 
+CAPS_WORD_ENABLE = no
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
 
