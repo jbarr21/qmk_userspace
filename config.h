@@ -1,6 +1,6 @@
 #pragma once
 
-#define HRM_ENABLE
+// #define HRM_ENABLE
 
 #undef TAPPING_TERM
 #define TAPPING_TERM 200
