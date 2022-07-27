@@ -36,14 +36,18 @@ oneshot_state os_cmd_state = os_up_unqueued;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
     
+    #ifdef CALLUM_MODS_ENABLE
     update_oneshot(&os_shft_state, KC_LSFT, OS_SFT, keycode, record);
     update_oneshot(&os_ctrl_state, KC_LCTL, OS_CTL, keycode, record);
     update_oneshot(&os_alt_state, KC_LALT, OS_ALT, keycode, record);
     update_oneshot(&os_cmd_state, KC_LCMD, OS_GUI, keycode, record);
+    #endif
 
     return true;
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    return update_tri_layer_state(state, SYM, NAV, NUM);
+    state = update_tri_layer_state(state, SYM, NAV, NUM);
+    //state = update_tri_layer_state(state, MOU, IDE, FUN);
+    return state;
 }

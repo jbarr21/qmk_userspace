@@ -1,9 +1,10 @@
 #pragma once
 
-// #define HRM_ENABLE
+#define HRM_ENABLE
+//#define CALLUM_MODS_ENABLE
 
 #undef TAPPING_TERM
-#define TAPPING_TERM 200
+#define TAPPING_TERM 175
 #define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
 #define ONESHOT_TIMEOUT 5000
