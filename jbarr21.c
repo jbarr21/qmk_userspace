@@ -3,6 +3,18 @@
 #include "features/oneshot.h"
 #include "features/layer_lock.h"
 
+#ifdef BILATERAL_COMBINATIONS
+bool get_enable_bilateral_combinations_per_key(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(MOU,KC_TAB):
+        case LT(SYM,KC_SPC):
+            return false;
+        default:
+            return true;
+    }
+}
+#endif
+
 bool is_oneshot_cancel_key(uint16_t keycode) {
     switch (keycode) {
     case LA_SYM:

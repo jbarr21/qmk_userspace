@@ -11,7 +11,7 @@
 //                         `-----------------'     `-----------------'
 
 //COMB(cEnt,       KC_ENT,                     KC_BPSC, KC_SPC)
-COMB(cEmoji,     EMOJ,                       KC_M,    KC_COMM)
+//COMB(cEmoji,     EMOJ,                       KC_M,    KC_COMM)
 ACTN(capsWord,   caps_word_on(),             KC_F,    KC_U)
 ACTN(cHyper,     set_oneshot_mods(MOD_HYPR), KC_W,    KC_F)
 ACTN(cMeh,       set_oneshot_mods(MOD_MEH),  KC_U,    KC_Y)
