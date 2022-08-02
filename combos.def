@@ -5,13 +5,24 @@
 // |-----+-----+-----+-----+-----+-----|                 |-----+-----+-----+-----+-----+-----|
 // |     |     |     |     |  _  |     |                 |     |  _  |     |     |     |     |
 // |-----+-----+-----+-----+-----+-----|                 |-----+-----+-----+-----+-----+-----|
-// |     |     |     |     |     |     |                 |     |    EMOJ   |     |     |     |
+// |     |     |    TAB    |     |     |                 |     |     |    ENT    |     |     |
 // `-----------------------------------'-----.     ,-----------------------------------------'
 //                         |     |     |     |     |     |     |     |
 //                         `-----------------'     `-----------------'
 
-//COMB(cEnt,       KC_ENT,                     KC_BPSC, KC_SPC)
-//COMB(cEmoji,     EMOJ,                       KC_M,    KC_COMM)
+//ACTN(cFn,        set_oneshot_layer(FUN, ONESHOT_START), KC_F, KC_N)
 ACTN(capsWord,   caps_word_on(),             KC_F,    KC_U)
 ACTN(cHyper,     set_oneshot_mods(MOD_HYPR), KC_W,    KC_F)
 ACTN(cMeh,       set_oneshot_mods(MOD_MEH),  KC_U,    KC_Y)
+ACTN(cShiftL,    set_oneshot_mods(MOD_LSFT), KC_Z,    KC_X)
+ACTN(cShiftR,    set_oneshot_mods(MOD_RSFT), KC_DOT,  KC_SLSH)
+ACTN(cShift,     set_oneshot_mods(MOD_LSFT), KC_Z,    KC_SLSH)
+
+COMB(cVimac,     VIMAC,                      KC_F,    KC_L)
+COMB(cTab,       KC_TAB,                     KC_X,    KC_C)
+COMB(cTab2,      KC_TAB,                     KC_C,    KC_V)
+COMB(cEnt,       KC_ENT,                     KC_COMM, KC_DOT)
+COMB(cEnt2,      KC_ENT,                     KC_M ,   KC_COMM)
+COMB(cAlfrLower, ALFR,                       KC_D,    KC_H)
+COMB(cAlfrInner, ALFR,                       KC_V,    KC_M)
+COMB(cCxts,      CTXS,                       KC_C,    KC_COMM)

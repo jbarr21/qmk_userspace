@@ -16,13 +16,12 @@
 #define LA_NAV MO(NAV)
 
 // custom keycodes
-#define MY_SAFE_RANGE 0xfff0
-#define LLOCK         MY_SAFE_RANGE+1
-#define CAP_WRD       MY_SAFE_RANGE+2
-#define OS_GUI        MY_SAFE_RANGE+3
-#define OS_SFT        MY_SAFE_RANGE+4
-#define OS_ALT        MY_SAFE_RANGE+5
-#define OS_CTL        MY_SAFE_RANGE+6
+#define LLOCK         0xfff0
+#define CAP_WRD       0xfff1
+#define OS_GUI        0xfff2
+#define OS_SFT        0xfff3
+#define OS_ALT        0xfff4
+#define OS_CTL        0xfff5
 
 // home row mods
 #ifdef HRM_ENABLE
@@ -62,12 +61,15 @@
 
 // OS X shortcuts
 #define UNDO	G(KC_Z)
-#define CUT   G(KC_X)
+#define CUT     G(KC_X)
 #define COPY	G(KC_C)
 #define PASTE	G(KC_V)
+#define CLOSE	G(KC_W)
 
+#define VIMAC    G(S(A(C(KC_F))))
 #define EMOJ     G(C(KC_SPC))
 #define ALFR     G(KC_SPC)
+#define CTXS     A(KC_TAB)
 #define HIST_BK  G(KC_LBRC)
 #define HIST_FW  G(KC_RBRC)
 #define TAB_LT   S(G(KC_LBRC))
@@ -104,7 +106,7 @@
                                XXXXXXX, _______, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
 
 #define _NAV \
-    XXXXXXX, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, KC_VOLU,     XXXXXXX, HIST_BK, TAB_LT,  TAB_RT,  HIST_FW, XXXXXXX, \
+    XXXXXXX, KC_MPRV, CLOSE,   KC_MPLY, KC_MNXT, KC_VOLU,     XXXXXXX, HIST_BK, TAB_LT,  TAB_RT,  HIST_FW, XXXXXXX, \
     KC_TAB,  OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, KC_VOLD,     APP_WIN, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, \
     XXXXXXX, UNDO,    CUT,     COPY,    PASTE,   KC_MUTE,     XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  LLOCK,   \
                                XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, _______, XXXXXXX
@@ -122,13 +124,13 @@
                                XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
 
 #define _IDE \
-    RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_W,    XXXXXXX, XXXXXXX, RESET,   \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_W,    XXXXXXX, XXXXXXX, XXXXXXX, \
     XXXXXXX, CLS_FUN, XXXXXXX, FND_USE, RENAME,  XXXXXXX,     XXXXXXX, KC_A,    KC_S,    KC_D,    XXXXXXX, XXXXXXX, \
     XXXXXXX, DBG_OVR, DBG_IN,  DBG_OUT, DBG_RES, DBG_EVL,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LLOCK,   \
                                DM_REC1, DM_RSTP, DM_PLY1,     XXXXXXX, XXXXXXX, XXXXXXX
 
 #define _MOU \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+    RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,   \
     XXXXXXX, OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     KC_F16,  KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX, \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, LLOCK,   \
                                XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_BTN1, KC_BTN2
