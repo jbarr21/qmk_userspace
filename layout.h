@@ -10,6 +10,7 @@
 #define FUN 4
 #define IDE 5
 #define MOU 6
+#define MED 7
 
 // layer toggles
 #define LA_SYM MO(SYM)
@@ -61,6 +62,7 @@
 
 // OS X shortcuts
 #define UNDO	G(KC_Z)
+#define REDO	G(S(KC_Z))
 #define CUT     G(KC_X)
 #define COPY	G(KC_C)
 #define PASTE	G(KC_V)
@@ -75,6 +77,7 @@
 #define TAB_LT   S(G(KC_LBRC))
 #define TAB_RT   S(G(KC_RBRC))
 #define APP_WIN  G(KC_GRV)
+#define TOG_SCR  KC_F19
 
 #define KC_MOU_EMOJ TD(DANCE_0)
 #define KC_IDE_ALFR TD(DANCE_1)
@@ -91,13 +94,14 @@
 #define DBG_EVL  A(KC_F8)
 
 // Layout aliases
-#define LAYOUT_corne_w(...)       LAYOUT_split_3x6_3(__VA_ARGS__)
-#define LAYOUT_moonlander_w(...)  LAYOUT_moonlander(__VA_ARGS__)
+#define LAYOUT_sweeeeep_w(...)         LAYOUT_sweeeeep(__VA_ARGS__)
+#define LAYOUT_corne_w(...)            LAYOUT_split_3x6_3(__VA_ARGS__)
+#define LAYOUT_moonlander_w(...)       LAYOUT_moonlander(__VA_ARGS__)
 
 #define _DEF \
     XXXXXXX, KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSLS, \
     KC_ESC,  HR_A,    HR_R,    HR_S,    HR_T,    KC_D,        KC_H,    HR_N,    HR_E,    HR_I,    HR_O,    KC_QUOT, \
-    XXXXXXX, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX, \
+XXXXXXX, LT(MED,KC_Z), KC_X,   KC_C,    KC_V,    KC_B,        KC_K,    KC_M,    KC_COMM, KC_DOT,  LT(MED,KC_SLSH), XXXXXXX, \
       LT(MOU,KC_ESC), LT(NAV,KC_BSPC), LT(NUM,KC_TAB),        LT(IDE,KC_ENT), LT(SYM,KC_SPC), LT(FUN,KC_DEL)
 
 #define _SYM \
@@ -107,9 +111,9 @@
                                XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
 
 #define _NAV \
-    XXXXXXX, KC_MPRV, CLOSE,   KC_MPLY, KC_MNXT, KC_VOLU,     XXXXXXX, HIST_BK, TAB_LT,  TAB_RT,  HIST_FW, XXXXXXX, \
-    KC_TAB,  OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, KC_VOLD,     APP_WIN, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, \
-    XXXXXXX, UNDO,    CUT,     COPY,    PASTE,   KC_MUTE,     XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  LLOCK,   \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_CAPS, HIST_BK, TAB_LT,  TAB_RT,  HIST_FW, XXXXXXX, \
+    XXXXXXX, OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     APP_WIN, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  LLOCK,   \
                                XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
 
 #define _NUM \
@@ -131,10 +135,29 @@
                                DM_REC1, DM_RSTP, DM_PLY1,     XXXXXXX, XXXXXXX, XXXXXXX
 
 #define _MOU \
-    RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,   \
+    RESET,   RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     REDO,    PASTE,   COPY,    CUT,     UNDO,    XXXXXXX,   \
     XXXXXXX, OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     KC_F16,  KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX, \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, LLOCK,   \
-                               XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_BTN1, KC_BTN2
+                               TOG_SCR, KC_BTN1, KC_BTN2,     XXXXXXX, KC_BTN1, KC_BTN2
+
+#define _MED \
+    XXXXXXX, RGB_VAI, RGB_SAI, RGB_HUI, RGB_MOD, RGB_TOG,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,   XXXXXXX, \
+    XXXXXXX, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX,     XXXXXXX, OSM_GUI, OSM_SFT, OSM_ALT, OSM_CTL, XXXXXXX, \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+                               XXXXXXX, KC_MPLY, KC_MUTE,     XXXXXXX, XXXXXXX, XXXXXXX
+
+// 3x6_3 to 3x5_3 conversion
+#define C_SWEEP(k) SPLIT_42_TO_36(k)
+#define SPLIT_42_TO_36( \
+    k01, k02, k03, k04, k05, k06,    k07, k08, k09, k10, k11, k12, \
+    k13, k14, k15, k16, k17, k18,    k19, k20, k21, k22, k23, k24, \
+    k25, k26, k27, k28, k29, k30,    k31, k32, k33, k34, k35, k36, \
+                   k37, k38, k39,    k40, k41, k42 \
+) \
+    k02, k03, k04, k05, k06,    k07, k08, k09, k10, k11, \
+    k14, k15, k16, k17, k18,    k19, k20, k21, k22, k23, \
+    k26, k27, k28, k29, k30,    k31, k32, k33, k34, k35, \
+              k37, k38, k39,    k40, k41, k42
 
 // 3x6_3 to moonlander conversion
 #define C_ML(k) SPLIT_42_TO_ML(k)

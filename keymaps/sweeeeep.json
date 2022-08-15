@@ -1,0 +1,19 @@
+{
+    "author": "",
+    "documentation": "Wrapper based keymap",
+    "keyboard": "fingerpunch/sweeeeep/no_features",
+    "keymap": "jbarr21",
+    "layout": "LAYOUT_sweeeeep_w",
+    "layers": [
+        [ "C_SWEEP(_DEF)" ],
+        [ "C_SWEEP(_SYM)" ],
+        [ "C_SWEEP(_NAV)" ],
+        [ "C_SWEEP(_NUM)" ],
+        [ "C_SWEEP(_FUN)" ],
+        [ "C_SWEEP(_IDE)" ],
+        [ "C_SWEEP(_MOU)" ],
+        [ "C_SWEEP(_MED)" ]
+    ],
+    "notes": "",
+    "version": 1
+}

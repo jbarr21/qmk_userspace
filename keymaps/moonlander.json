@@ -11,7 +11,8 @@
         [ "C_ML(_NUM)" ],
         [ "C_ML(_FUN)" ],
         [ "C_ML(_IDE)" ],
-        [ "C_ML(_MOU)" ]
+        [ "C_ML(_MOU)" ],
+        [ "C_ML(_MED)" ]
 	],
 	"notes": "",
 	"version": 1
