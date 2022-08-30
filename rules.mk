@@ -1,9 +1,15 @@
 SRC += jbarr21.c
 
 CAPS_WORD_ENABLE = yes
+# KEY_OVERRIDE_ENABLE = yes
+MOUSEKEY_ENABLE = yes
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
+EXTRAKEY_ENABLE = yes
+LTO_ENABLE = yes
 
+SRC += features/custom_shift_keys.c
+# SRC += features/key_overrides.c
 SRC += features/layer_lock.c
 SRC += features/oneshot.c
 
