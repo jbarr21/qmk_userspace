@@ -1,7 +1,7 @@
 {
     "author": "",
     "documentation": "Wrapper based keymap",
-    "keyboard": "fingerpunch/sweeeeep/no_features",
+    "keyboard": "fingerpunch/sweeeeep/rgblight",
     "keymap": "jbarr21",
     "layout": "LAYOUT_sweeeeep_w",
     "layers": [
