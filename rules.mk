@@ -22,6 +22,10 @@ SRC += features/oneshot.c
 SRC += features/combos.c
 COMBO_ENABLE = yes
 
+ifeq ($(KEYBOARD), fingerpunch/sweeeeep/rgblight_oled)
+	SRC += features/oled.c
+endif
+
 ifeq ($(KEYBOARD), moonlander)
     WEBUSB_ENABLE = yes
     ORYX_ENABLE = yes
