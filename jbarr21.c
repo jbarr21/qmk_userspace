@@ -23,6 +23,7 @@ bool get_enable_bilateral_combinations_per_key(uint16_t keycode, keyrecord_t *re
 }
 #endif
 
+#ifdef CALLUM_MODS_ENABLE
 bool is_oneshot_cancel_key(uint16_t keycode) {
     switch (keycode) {
     case LA_SYM:
@@ -52,11 +53,17 @@ oneshot_state os_shft_state = os_up_unqueued;
 oneshot_state os_ctrl_state = os_up_unqueued;
 oneshot_state os_alt_state = os_up_unqueued;
 oneshot_state os_cmd_state = os_up_unqueued;
+#endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    #ifdef LAYER_LOCK_ENABLE
     if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
+    #endif
+
+    #ifdef CUSTOM_SHIFT_KEYS_ENABLE
     if (!process_custom_shift_keys(keycode, record)) { return false; }
-    
+    #endif
+
     #ifdef CALLUM_MODS_ENABLE
     update_oneshot(&os_shft_state, KC_LSFT, OS_SFT, keycode, record);
     update_oneshot(&os_ctrl_state, KC_LCTL, OS_CTL, keycode, record);

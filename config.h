@@ -1,7 +1,8 @@
 #pragma once
 
+#define CUSTOM_SHIFT_KEYS_ENABLE
 #define HRM_ENABLE
-//#define CALLUM_MODS_ENABLE
+#undef CALLUM_MODS_ENABLE
 
 #undef TAPPING_TERM
 #define TAPPING_TERM 150
@@ -27,6 +28,11 @@
     #define COMBO_ONLY_FROM_LAYER 0  // DEF layer
     #undef COMBO_TERM
     #define COMBO_TERM 50
+#endif
+
+#if defined(KEYBOARD_sweeeeep)
+else
+    #define LAYER_LOCK_ENABLE
 #endif
 
 #if defined(KEYBOARD_moonlander)
