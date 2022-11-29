@@ -3,6 +3,7 @@ SRC += jbarr21.c
 CAPS_WORD_ENABLE = yes
 KEY_OVERRIDE_ENABLE = no
 MOUSEKEY_ENABLE = yes
+TAP_DANCE_ENABLE = no
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
 EXTRAKEY_ENABLE = yes
@@ -32,11 +33,4 @@ ifeq ($(KEYBOARD), moonlander)
     DYNAMIC_MACRO_ENABLE = yes
     SRC += matrix.c
     SRC += features/rgb.c
-endif
-
-ifeq ($(KEYBOARD), kprepublic/bm16s)
-    TAP_DANCE_ENABLE = no
-else
-    TAP_DANCE_ENABLE = yes
-    SRC += features/tap_dance.c
 endif
