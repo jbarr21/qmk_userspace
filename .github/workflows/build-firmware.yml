@@ -82,7 +82,7 @@ jobs:
       with:
         repository: sadekbaroudi/qmk_firmware
         path: 'qmk_firmware_fp'
-        ref: a4ef69480a
+        ref: a4ef69480a6a4a03647befd1f0971051255e3b1c
         persist-credentials: false
         submodules: recursive
     - name: Checkout userspace
