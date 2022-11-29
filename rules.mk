@@ -1,12 +1,18 @@
 SRC += jbarr21.c
 
 CAPS_WORD_ENABLE = yes
-# KEY_OVERRIDE_ENABLE = yes
+KEY_OVERRIDE_ENABLE = no
 MOUSEKEY_ENABLE = yes
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
 EXTRAKEY_ENABLE = yes
+
+# save space
 LTO_ENABLE = yes
+SPACE_CADET_ENABLE = no
+GRAVE_ESC_ENABLE = no 
+MAGIC_ENABLE = no
+MUSIC_ENABLE = no
 
 SRC += features/custom_shift_keys.c
 # SRC += features/key_overrides.c

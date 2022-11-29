@@ -36,4 +36,9 @@
     #undef BILATERAL_COMBINATIONS
 #endif
 
+// save space
+#undef LOCKING_SUPPORT_ENABLE
+#undef LOCKING_RESYNC_ENABLE
+#define NO_MUSIC_MODE
+
 #include "layout.h"
