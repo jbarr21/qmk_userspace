@@ -71,3 +71,27 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     // state = update_tri_layer_state(state, NAV, NUM, FUN);
     return state;
 }
+
+#ifdef TAPPING_TERM_PER_KEY
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    if (IS_HRM(keycode)) {
+        if (keycode >> 8 & MOD_MASK_SHIFT) {
+            return TAPPING_TERM + 50;
+        }
+        return TAPPING_TERM + 100;
+    }
+    return TAPPING_TERM;
+}
+#endif
+
+#ifdef PERMISSIVE_HOLD_PER_KEY
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    return IS_HRM(keycode) ? false : true;
+}
+#endif
+
+#ifdef TAPPING_FORCE_HOLD_PER_KEY
+bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+    return IS_HRM(keycode) ? false : true;
+}
+#endif
