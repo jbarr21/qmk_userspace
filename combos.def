@@ -10,20 +10,14 @@
 //                   |     |     |     |     |     |     |     |
 //                   `-----------------'     `-----------------'
 
-//ACTN(cFn,        set_oneshot_layer(FUN, ONESHOT_START), KC_F, KC_N)
 ACTN(capsWord,   caps_word_on(),             KC_F,    KC_U)
-ACTN(capsWord2,  caps_word_on(),             KC_C,    KC_COMM)
 ACTN(cHyper,     set_oneshot_mods(MOD_HYPR), KC_W,    KC_F)
 ACTN(cMeh,       set_oneshot_mods(MOD_MEH),  KC_U,    KC_Y)
-ACTN(cShiftL,    set_oneshot_mods(MOD_LSFT), KC_Z,    KC_X)
-ACTN(cShiftR,    set_oneshot_mods(MOD_RSFT), KC_DOT,  KC_SLSH)
-ACTN(cShift,     set_oneshot_mods(MOD_LSFT), KC_Z,    KC_SLSH)
-ACTN(cShift2,    set_oneshot_mods(MOD_LSFT), KC_X,    KC_DOT)
+ACTN(cShift,    set_oneshot_mods(MOD_LSFT), KC_X,    KC_DOT)
 
 COMB(cVimac,     VIMAC,                      KC_F,    KC_L)
 COMB(cEsc,       KC_ESC,                     KC_X,    KC_C)
 COMB(cEsc2,      KC_ESC,                     KC_C,    KC_V)
-COMB(cEnt,       KC_ENT,                     KC_COMM, KC_DOT)
 COMB(cAlfrLower, ALFR,                       KC_D,    KC_H)
 COMB(cAlfrInner, ALFR,                       KC_V,    KC_M)
 COMB(cCxts,      CTXS,                       KC_C,    KC_COMM)
