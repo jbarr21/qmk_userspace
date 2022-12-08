@@ -5,14 +5,14 @@
     "keymap": "jbarr21",
     "layout": "LAYOUT_corne_w",
     "layers": [
-        [ "_DEF" ],
-        [ "_SYM" ],
-        [ "_NAV" ],
-        [ "_NUM" ],
-        [ "_FUN" ],
-        [ "_IDE" ],
-        [ "_MOU" ],
-        [ "_MED" ]
+        [ "C_42(_DEF)" ],
+        [ "C_42(_SYM)" ],
+        [ "C_42(_NAV)" ],
+        [ "C_42(_NUM)" ],
+        [ "C_42(_FUN)" ],
+        [ "C_42(_IDE)" ],
+        [ "C_42(_MOU)" ],
+        [ "C_42(_MED)" ]
     ],
     "notes": "",
     "version": 1

@@ -99,77 +99,77 @@
 #define LAYOUT_moonlander_w(...)       LAYOUT_moonlander(__VA_ARGS__)
 
 #define _DEF \
-    XXXXXXX, KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSLS, \
-    KC_ESC,  HR_A,    HR_R,    HR_S,    HR_T,    KC_D,        KC_H,    HR_N,    HR_E,    HR_I,    HR_O,    KC_QUOT, \
-    XXXXXXX, LT(MED,KC_Z),    KC_X,    KC_C,    KC_V,    KC_B,        KC_K,    KC_M,    KC_COMM, KC_DOT,  LT(MED,KC_SLSH), XXXXXXX, \
-      LT(MOU,KC_ESC), LT(NAV,KC_BSPC), LT(NUM,KC_TAB),        LT(IDE,KC_ENT), LT(SYM,KC_SPC), LT(FUN,KC_DEL)
+    KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, \
+    HR_A,    HR_R,    HR_S,    HR_T,    KC_D,        KC_H,    HR_N,    HR_E,    HR_I,    HR_O,    \
+    LT(MED,KC_Z), KC_X, KC_C, KC_V, KC_B,            KC_K,    KC_M,    KC_COMM, KC_DOT,  LT(MED,KC_SLSH), \
+      LT(MOU,KC_ESC), LT(NAV,KC_BSPC), LT(NUM,KC_TAB),        LT(IDE,KC_ENT), LT(SYM,KC_SPC), OSM_SFT
 
 #define _SYM \
-    XXXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,     KC_CIRC, KC_AMPR, KC_ASTR, KC_DQUO, KC_QUOT, XXXXXXX, \
-    XXXXXXX, KC_PLUS, KC_UNDS, KC_EQL,  KC_MINS, KC_GRV,      KC_PIPE, OSM_GUI, OSM_SFT, OSM_ALT, OSM_CTL, XXXXXXX, \
-    XXXXXXX, KC_LT,   KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,     KC_BSLS, KC_RPRN, KC_RCBR, KC_RBRC, KC_GT,   LLOCK,   \
-                               XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
+    KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,     KC_CIRC, KC_AMPR, KC_ASTR, KC_DQUO, KC_QUOT, \
+    KC_PLUS, KC_UNDS, KC_EQL,  KC_MINS, KC_GRV,      KC_PIPE, OSM_GUI, OSM_SFT, OSM_ALT, OSM_CTL, \
+    KC_LT,   KC_LBRC, KC_LCBR, KC_LPRN, KC_TILD,     KC_BSLS, KC_RPRN, KC_RCBR, KC_RBRC, KC_GT,   \
+                      XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
 
 #define _NAV \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_CAPS, HIST_BK, TAB_LT,  TAB_RT,  HIST_FW, XXXXXXX, \
-    XXXXXXX, OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     APP_WIN, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  LLOCK,   \
-                               XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_CAPS, HIST_BK, TAB_LT,  TAB_RT,  HIST_FW, \
+    OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     APP_WIN, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  \
+                      XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
 
 #define _NUM \
-    XXXXXXX, KC_PLUS, KC_SLSH, KC_ASTR, KC_MINS, XXXXXXX,     XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX, XXXXXXX, \
-    XXXXXXX, OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     XXXXXXX, KC_4,    KC_5,    KC_6,    XXXXXXX, XXXXXXX, \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_1,    KC_2,    KC_3,    XXXXXXX, LLOCK,   \
-                               XXXXXXX, XXXXXXX, XXXXXXX,     KC_DOT,  KC_0,    XXXXXXX
+    KC_PLUS, KC_SLSH, KC_ASTR, KC_MINS, XXXXXXX,     XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX, \
+    OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     XXXXXXX, KC_4,    KC_5,    KC_6,    XXXXXXX, \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_1,    KC_2,    KC_3,    XXXXXXX, \
+                      XXXXXXX, XXXXXXX, XXXXXXX,     LT(FUN,KC_DOT),  KC_0,    XXXXXXX
 
 #define _FUN \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_F15,  KC_F18, \
-    XXXXXXX, OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_F14,  KC_F17, \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_F13,  KC_F16, \
-                               XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_F15,  \
+    OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_F14,  \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_F13,  \
+                      XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
 
 #define _IDE \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_A,    KC_S,    KC_W,    KC_D,    XXXXXXX, \
-    XXXXXXX, OSM_CTL, CLS_FUN, FND_USE, RENAME,  BRK_PT,      XXXXXXX, KC_H,    KC_J,    KC_K,    KC_L,    XXXXXXX, \
-    XXXXXXX, DBG_OVR, DBG_IN,  DBG_OUT, DBG_RES, DBG_EVL,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LLOCK,   \
-                               DM_REC1, DM_RSTP, DM_PLY1,     XXXXXXX, XXXXXXX, XXXXXXX
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_A,    KC_S,    KC_W,    KC_D,    \
+    OSM_CTL, CLS_FUN, FND_USE, RENAME,  BRK_PT,      XXXXXXX, KC_H,    KC_J,    KC_K,    KC_L,    \
+    DBG_OVR, DBG_IN,  DBG_OUT, DBG_RES, DBG_EVL,     XXXXXXX, DM_PLY1, DM_RSTP, DM_REC1, XXXXXXX, \
+                      XXXXXXX, XXXXXXX, MO(FUN),     XXXXXXX, XXXXXXX, XXXXXXX
 
 #define _MOU \
-    RESET,   RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     REDO,    PASTE,   COPY,    CUT,     UNDO,    XXXXXXX, \
-    XXXXXXX, OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     KC_F16,  KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX, \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, LLOCK,   \
-                               TOG_SCR, KC_BTN1, KC_BTN2,     XXXXXXX, KC_BTN1, KC_BTN2
-    
+    RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+    OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     KC_F16,  KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, \
+                      TOG_SCR, KC_BTN1, KC_BTN2,     XXXXXXX, KC_BTN1, KC_BTN2
+
 #define _MED \
-    XXXXXXX, RGB_VAI, RGB_SAI, RGB_HUI, RGB_MOD, RGB_TOG,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,   RESET,   \
-    XXXXXXX, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX,     XXXXXXX, OSM_GUI, OSM_SFT, OSM_ALT, OSM_CTL, XXXXXXX, \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-                               XXXXXXX, KC_MPLY, KC_MUTE,     XXXXXXX, XXXXXXX, XXXXXXX
+    RGB_VAI, RGB_SAI, RGB_HUI, RGB_MOD, RGB_TOG,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,   \
+    KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, XXXXXXX,     XXXXXXX, OSM_GUI, OSM_SFT, OSM_ALT, OSM_CTL, \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+                      XXXXXXX, KC_MPLY, KC_MUTE,     XXXXXXX, XXXXXXX, XXXXXXX
 
-// 3x6_3 to 3x5_3 conversion
-#define C_SWEEP(k) SPLIT_42_TO_36(k)
-#define SPLIT_42_TO_36( \
-    k01, k02, k03, k04, k05, k06,    k07, k08, k09, k10, k11, k12, \
-    k13, k14, k15, k16, k17, k18,    k19, k20, k21, k22, k23, k24, \
-    k25, k26, k27, k28, k29, k30,    k31, k32, k33, k34, k35, k36, \
-                   k37, k38, k39,    k40, k41, k42 \
+// 3x5_3 to 3x6_3 conversion
+#define C_42(k) SPLIT_36_TO_42(k)
+#define SPLIT_36_TO_42( \
+    k01, k02, k03, k04, k05,    k06, k07, k08, k09, k10, \
+    k11, k12, k13, k14, k15,    k16, k17, k18, k19, k20, \
+    k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, \
+              k31, k32, k33,    k34, k35, k36 \
 ) \
-    k02, k03, k04, k05, k06,    k07, k08, k09, k10, k11, \
-    k14, k15, k16, k17, k18,    k19, k20, k21, k22, k23, \
-    k26, k27, k28, k29, k30,    k31, k32, k33, k34, k35, \
-              k37, k38, k39,    k40, k41, k42
+    KC_NO,  k02, k03, k04, k05, k06,    k07, k08, k09, k10, k11, KC_BSLS, \
+    KC_ESC, k14, k15, k16, k17, k18,    k19, k20, k21, k22, k23, KC_QUOT, \
+    KC_NO,  k26, k27, k28, k29, k30,    k31, k32, k33, k34, k35, LLOCK,   \
+                      k37, k38, k39,    k40, k41, k42
 
-// 3x6_3 to moonlander conversion
-#define C_ML(k) SPLIT_42_TO_ML(k)
+// 3x5_3 to moonlander conversion
+#define C_ML(k) SPLIT_36_TO_ML(k)
 #define SPLIT_42_TO_ML( \
-    k01, k02, k03, k04, k05, k06,    k07, k08, k09, k10, k11, k12, \
-    k13, k14, k15, k16, k17, k18,    k19, k20, k21, k22, k23, k24, \
-    k25, k26, k27, k28, k29, k30,    k31, k32, k33, k34, k35, k36, \
-                   k37, k38, k39,    k40, k41, k42 \
+         k01, k02, k03, k04, k05,    k06, k07, k08, k09, k10, \
+         k11, k12, k13, k14, k15,    k16, k17, k18, k19, k20, \
+         k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, \
+                   k31, k32, k33,    k34, k35, k36 \
 ) \
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
-    k01,   k02,   k03,   k04,   k05,   k06,   KC_NO,   KC_NO, k07,   k08,   k09,   k10,   k11,   k12, \
-    k13,   k14,   k15,   k16,   k17,   k18,   KC_NO,   KC_NO, k19,   k20,   k21,   k22,   k23,   k24, \
-    k25,   k26,   k27,   k28,   k29,   k30,                   k31,   k32,   k33,   k34,   k35,   k36, \
-    KC_NO, KC_NO, KC_NO, KC_NO, k37,          OSM_HYP, OSM_MEH,      k42,   KC_NO, KC_NO, KC_NO, KC_NO, \
-                         k38,   k39,   KC_NO,                 KC_NO, k40,   k41
+    KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
+    KC_NO,  k01,   k02,   k03,   k04,   k05,   KC_NO,   KC_NO, k06,   k07,   k08,   k09,   k10,   KC_NO, \
+    KC_ESC, k11,   k12,   k13,   k14,   k15,   KC_NO,   KC_NO, k16,   k17,   k18,   k19,   k20,   KC_NO, \
+    KC_NO,  k21,   k22,   k23,   k24,   k25,                   k26,   k27,   k28,   k29,   k30,   KC_NO, \
+    KC_NO,  KC_NO, KC_NO, KC_NO, k31,          OSM_HYP, OSM_MEH,      k36,   KC_NO, KC_NO, KC_NO, KC_NO, \
+                         k32,   k33,   KC_NO,                 KC_NO, k34,   k35
