@@ -5,6 +5,7 @@
 #include "features/layer_lock.h"
 
 const custom_shift_key_t custom_shift_keys[] = {
+  {LT(NAV, KC_BSPC), KC_DEL},  // Shift BS is DEL
   {KC_COMM, KC_DQUO}, // Shift , is "
   {KC_DOT , KC_QUOT}, // Shift . is '
 };
@@ -72,11 +73,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     #endif
 
     return true;
-}
-
-layer_state_t layer_state_set_user(layer_state_t state) {
-    // state = update_tri_layer_state(state, NAV, NUM, FUN);
-    return state;
 }
 
 #ifdef TAPPING_TERM_PER_KEY
