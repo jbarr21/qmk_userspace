@@ -16,7 +16,6 @@ MAGIC_ENABLE = no
 MUSIC_ENABLE = no
 
 SRC += features/custom_shift_keys.c
-# SRC += features/key_overrides.c
 SRC += features/layer_lock.c
 SRC += features/oneshot.c
 
