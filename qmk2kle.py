@@ -90,13 +90,16 @@ class Key:
             tap = aliased[comma_index+1:aliased.find(')')].replace('KC_', '')
             self.tap = qmk_to_name.get(tap, tap)
             self.hold = aliased[aliased.find('(')+1:comma_index]
+        elif 'MO(' in aliased:
+            self.tap = ''
+            self.hold = aliased[3:-1]
         elif 'OSM' in aliased:
             tap = aliased[aliased.find('_')+1:len(aliased)-1]
             if tap[0] == 'L' or tap[0] == 'R':
                 tap = tap[1:]
             self.tap = f"{qmk_to_name.get(tap, tap)}<br>OSM"
             self.hold = None
-        elif aliased.startswith('TO(') or aliased.startswith('MO('):
+        elif aliased.startswith('TO('):
             self.tap = aliased.replace('(', ' ').replace(')', '')
             self.hold = None
         elif aliased.startswith('OSL('):
