@@ -61,12 +61,12 @@
 #define OSM_MEH OSM(MOD_MEH)
 
 // OS X shortcuts
-#define UNDO	G(KC_Z)
-#define REDO	G(S(KC_Z))
+#define UNDO    G(KC_Z)
+#define REDO    G(S(KC_Z))
 #define CUT     G(KC_X)
-#define COPY	G(KC_C)
-#define PASTE	G(KC_V)
-#define CLOSE	G(KC_W)
+#define COPY    G(KC_C)
+#define PASTE   G(KC_V)
+#define CLOSE   G(KC_W)
 
 #define VIMAC    G(S(A(C(KC_F))))
 #define EMOJ     G(C(KC_SPC))
@@ -101,7 +101,7 @@
 #define _DEF \
     KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, \
     HR_A,    HR_R,    HR_S,    HR_T,    KC_D,        KC_H,    HR_N,    HR_E,    HR_I,    HR_O,    \
-    LT(MED,KC_Z), KC_X, KC_C, KC_V, KC_B,            KC_K,    KC_M,    KC_COMM, KC_DOT,  LT(MED,KC_SLSH), \
+    LT(MED,KC_Z), KC_X, KC_C,  KC_V,    KC_B,        KC_K,    KC_M,    KC_COMM, KC_DOT,  LT(MED,KC_SLSH), \
       LT(MOU,KC_ESC), LT(NAV,KC_BSPC), LT(NUM,KC_TAB),        LT(IDE,KC_ENT), LT(SYM,KC_SPC), OSM_SFT
 
 #define _SYM \
@@ -161,7 +161,7 @@
 
 // 3x5_3 to moonlander conversion
 #define C_ML(k) SPLIT_36_TO_ML(k)
-#define SPLIT_42_TO_ML( \
+#define SPLIT_36_TO_ML( \
          k01, k02, k03, k04, k05,    k06, k07, k08, k09, k10, \
          k11, k12, k13, k14, k15,    k16, k17, k18, k19, k20, \
          k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, \
