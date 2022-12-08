@@ -146,6 +146,18 @@
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
                       XXXXXXX, KC_MPLY, KC_MUTE,     XXXXXXX, XXXXXXX, XXXXXXX
 
+// #define _MID
+//     XXXXXXX, KC_W,    KC_E,    XXXXXXX, XXXXXXX,     XXXXXXX, KC_T,    KC_Y,    KC_U,    XXXXXXX,
+//     KC_A,    KC_S,    KC_D,    KC_F,    XXXXXXX,     XXXXXXX, KC_G,    KC_H,    KC_J,    KC_K,
+//     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TO(DEF),     TO(DEF), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//                       XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
+
+// #define _MID 
+//     XXXXXXX, MI_Cs,   MI_Ds,   XXXXXXX, XXXXXXX,     XXXXXXX, MI_Fs,   MI_Gs,   MI_As,   XXXXXXX,
+//     MI_C,    MI_D,    MI_E,    MI_F,    XXXXXXX,     XXXXXXX, MI_G,    MI_A,    MI_B,    MI_C_1, 
+//     MI_OFF,  XXXXXXX, XXXXXXX, XXXXXXX, TO(DEF),     TO(DEF), XXXXXXX, XXXXXXX, XXXXXXX, MI_ON,  
+//                       XXXXXXX, MI_OCTD, XXXXXXX,     XXXXXXX, MI_OCTU, XXXXXXX
+
 // 3x5_3 to 3x6_3 conversion
 #define C_42(k) SPLIT_36_TO_42(k)
 #define SPLIT_36_TO_42( \
