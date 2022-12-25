@@ -27,13 +27,19 @@ jobs:
         python-version: 3.9
     - name: Install dependencies
       run: |
+        pushd $GITHUB_WORKSPACE/parser
         python -m pip install --upgrade pip
         pip install pipenv
         pipenv install
+        popd
     - name: Prepare Selenium
       uses: nanasess/setup-chromedriver@master
     - name: Download image
-      run: pipenv run python qmk2kle.py -l -i layout.h
+      run: |
+        pushd $GITHUB_WORKSPACE/parser
+        pipenv run python qmk2kle.py -l -i ../layout.h
+        mv $GITHUB_WORKSPACE/parser/keyboard-layout.png $GITHUB_WORKSPACE || true
+        popd
     - name: Upload image
       uses: actions/upload-artifact@v2
       with:
