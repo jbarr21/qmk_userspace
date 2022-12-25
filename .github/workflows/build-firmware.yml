@@ -57,6 +57,7 @@ jobs:
           - cantor
           - corne
           - moonlander
+          - piantor
           - sweeeeep
           - bm16s
     steps:
