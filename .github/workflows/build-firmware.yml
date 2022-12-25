@@ -80,7 +80,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: zsa/qmk_firmware
-        ref: firmware21
+        ref: firmware22
         persist-credentials: false
         submodules: recursive
     - name: Checkout Fingerpunch/QMK
