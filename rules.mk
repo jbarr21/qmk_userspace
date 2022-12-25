@@ -24,6 +24,10 @@ COMBO_ENABLE = yes
 
 ifeq ($(KEYBOARD), fingerpunch/sweeeeep/rgblight_oled)
 	SRC += features/oled.c
+
+	RGBLIGHT_ENABLE=yes
+    OLED_ENABLE=yes
+    ENCODER_ENABLE=no
 endif
 
 ifeq ($(KEYBOARD), moonlander)
