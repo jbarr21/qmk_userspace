@@ -30,6 +30,7 @@
     #define COMBO_TERM 50
 #endif
 
+#define FP_DISABLE_CUSTOM_KEYCODES
 #if defined(KEYBOARD_sweeeeep)
 else
     #define LAYER_LOCK_ENABLE

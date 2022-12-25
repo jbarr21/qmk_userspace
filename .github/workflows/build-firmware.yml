@@ -89,7 +89,7 @@ jobs:
       with:
         repository: sadekbaroudi/qmk_firmware
         path: 'qmk_firmware_fp'
-        ref: a4ef69480a6a4a03647befd1f0971051255e3b1c
+        ref: 822057fd447996f08c00449d56220d720cc728ff
         persist-credentials: false
         submodules: recursive
     - name: Checkout userspace
@@ -109,4 +109,5 @@ jobs:
         path: |
           *.bin
           *.hex
+          *.uf2
         retention-days: 7
