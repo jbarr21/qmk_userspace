@@ -9,7 +9,12 @@ qmk compile users/jbarr21/keymaps/<keyboard>.json
 ```
 Build with Docker:
 ```sh
-docker run -it --rm -v $(dirname $PWD)/qmk_firmware:/qmk_firmware -v $(dirname $PWD)/qmk_firmware_fingerpunch:/qmk_firmware_fingerpunch -v $(dirname $PWD)/qmk_userspace:/qmk_userspace -w="/qmk_firmware" qmkfm/qmk_cli /bin/bash
+docker run -it --rm -w="/qmk_firmware" \
+    -v $(dirname $PWD)/qmk_firmware:/qmk_firmware \
+    -v $(dirname $PWD)/qmk_firmware_fingerpunch:/qmk_firmware_fingerpunch \
+    -v $(dirname $PWD)/qmk_firmware_zsa:/qmk_firmware_zsa \
+    -v $(dirname $PWD)/qmk_userspace:/qmk_userspace \
+    qmkfm/qmk_cli /bin/bash
 ```
 
 ## Keymap
