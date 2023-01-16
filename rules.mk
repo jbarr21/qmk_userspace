@@ -30,6 +30,12 @@ ifeq ($(KEYBOARD), fingerpunch/sweeeeep/rgblight_oled)
     ENCODER_ENABLE=no
 endif
 
+ifeq ($(KEYBOARD), beekeeb/piantor)
+	DYNAMIC_MACRO_ENABLE=yes
+else ifeq ($(KEYBOARD), cantor)
+	DYNAMIC_MACRO_ENABLE=yes
+endif
+
 ifeq ($(KEYBOARD), moonlander)
     WEBUSB_ENABLE = yes
     ORYX_ENABLE = yes
