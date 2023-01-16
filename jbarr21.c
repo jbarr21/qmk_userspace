@@ -15,8 +15,7 @@ uint8_t NUM_CUSTOM_SHIFT_KEYS =
 #ifdef BILATERAL_COMBINATIONS
 bool get_enable_bilateral_combinations_per_key(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(MOU,KC_TAB):
-        case LT(SYM,KC_SPC):
+        case TH_R2:
             return false;
         default:
             return true;
