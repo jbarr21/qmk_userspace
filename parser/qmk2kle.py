@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import configparser
 import os
 import re
 import time
@@ -17,64 +18,8 @@ KLE_LAYOUT = dedent('''
 ''')
 
 MODS = ['GUI', 'SFT', 'ALT', 'CTL']
-kle_chars_needing_escaping = [';', '/', '@', '&', '_', '=']
-qmk_to_name = {
-    'NO':   '',
-    'ENT':  '⏎',
-    'ESC':  'Esc',
-    'BSPC': '⌫',
-    'TAB':  'Tab',
-    'SPC':  'Space',
-    'MIN':  '-',
-    'MINS': '-',
-    'EQL': 	'=',
-    'LBRC': '[',
-    'RBRC': ']',
-    'BSLS': '\\',
-    'SCLN': ';',
-    'QUOT': '\'',
-    'DQUO': '"',
-    'QUES': '?',
-    'GRV': 	'`',
-    'DOT':  '.',
-    'COMM': ',',
-    'SLSH': '/',
-    'TILD':	'~',
-    'EXLM':	'!',
-    'AT':   '@',
-    'HASH':	'#',
-    'DLR':  '$',
-    'PERC':	'%',
-    'CIRC':	'^',
-    'AMPR':	'&',
-    'ASTR':	'*',
-    'LPRN':	'(',
-    'RPRN':	')',
-    'UNDS':	'_',
-    'PLUS':	'+',
-    'LCB':  '{',
-    'RCB':  '}',
-    'LCBR':	'{',
-    'RCBR':	'}',
-    'PIPE':	'|',
-    'COLN':	':',
-    'LT':   '<',
-    'GT':   '>',
-    'UP':   '↑',
-    'DOWN': '↓',
-    'LEFT': '←',
-    'RGHT': '→',
-    'GUI':  '⌘',
-    'SFT':  '⇧',
-    'ALT':  '⌥',
-    'CTL':  '⎈',
-    'MPLY': '▶',
-    'MSTP': '■',
-    'MPRV': '|◀',
-    'MNXT': '▶|',
-    'CAPSWRD': 'CAPS WORD',
-    'LLOCK': 'LAYER LOCK'
-}
+kle_chars_needing_escaping = [';', '/', '@', '&', '_', '=', ':']
+qmk_to_name = { }
 
 class Key:
     def __init__(self, code, aliases):
@@ -235,6 +180,14 @@ def download_wait(directory, timeout, nfiles=None):
         seconds += 1
     return seconds
 
+def load_config():
+    config = configparser.ConfigParser()
+    config.optionxform = str
+    with open('legends.properties', 'r') as f:
+        config.read_file(f)
+        if 'legends' in config._sections:
+            qmk_to_name.update(config._sections.get("legends"))
+
 if __name__ == '__main__':
 
     if len(argv) < 2 or len(argv) > 4 or argv[len(argv)-1].startswith('-'):
@@ -243,6 +196,7 @@ if __name__ == '__main__':
     link_only = '-l' in argv
 
     try:
+        load_config()
         layout = Layout(argv[len(argv)-1])
         if link_only:
             print(layout.to_kle_url())
