@@ -22,24 +22,19 @@ SRC += features/oneshot.c
 SRC += features/combos.c
 COMBO_ENABLE = yes
 
-ifeq ($(KEYBOARD), fingerpunch/sweeeeep/rgblight_oled)
-	SRC += features/oled.c
-
-	RGBLIGHT_ENABLE=yes
-    OLED_ENABLE=yes
-    ENCODER_ENABLE=no
-endif
-
-ifeq ($(KEYBOARD), beekeeb/piantor)
-	DYNAMIC_MACRO_ENABLE=yes
-else ifeq ($(KEYBOARD), cantor)
-	DYNAMIC_MACRO_ENABLE=yes
-endif
-
-ifeq ($(KEYBOARD), moonlander)
+ifeq ($(KEYBOARD), cantor)
+    DYNAMIC_MACRO_ENABLE=yes
+else ifeq ($(KEYBOARD), beekeeb/piantor)
+    DYNAMIC_MACRO_ENABLE=yes
+else ifeq ($(KEYBOARD), moonlander)
     WEBUSB_ENABLE = yes
     ORYX_ENABLE = yes
     DYNAMIC_MACRO_ENABLE = yes
     SRC += matrix.c
     SRC += features/rgb.c
+else ifeq ($(KEYBOARD), fingerpunch/sweeeeep)
+    SRC += features/oled.c
+    RGBLIGHT_ENABLE=yes
+    OLED_ENABLE=yes
+    DYNAMIC_MACRO_ENABLE=no
 endif
