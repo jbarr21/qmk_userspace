@@ -6,54 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  Render:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: ${{ github.head_ref }}
-    - uses: nanasess/setup-chromedriver@v1
-      with:
-        # Optional: do not specify to match Chrome's version
-        chromedriver-version: '88.0.4324.96'
-    - name: Launch browser
-      run: |
-        export DISPLAY=:99
-        chromedriver --url-base=/wd/hub &
-        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
-    - name: Install dependencies
-      run: |
-        pushd $GITHUB_WORKSPACE/parser
-        python -m pip install --upgrade pip
-        pip install pipenv
-        pipenv install
-        popd
-    - name: Prepare Selenium
-      uses: nanasess/setup-chromedriver@master
-    - name: Download image
-      run: |
-        pushd $GITHUB_WORKSPACE/parser
-        pipenv run python qmk2kle.py -l -i ../layout.h
-        mv $GITHUB_WORKSPACE/parser/keyboard-layout.png $GITHUB_WORKSPACE || true
-        popd
-    - name: Upload image
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ github.actor }}-keyboard-layout.png
-        path: |
-          *.png
-        retention-days: 7
-    - name: Commit updated image
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: "[Skip CI] Automated keymap render"
-        file_pattern: keyboard-layout.png
+  render:
+    uses: jbarr21/keymap-display/.github/workflows/render-keymap.yml@main
+    with:
+      keymap_type: qmk
+      keymap_path: layout.h
 
-  Build:
+  build:
     runs-on: ubuntu-latest
     container: qmkfm/qmk_cli
     strategy:
