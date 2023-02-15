@@ -19,6 +19,7 @@
 // custom keycodes
 #define _HELD_        XXXXXXX
 #define LLOCK         0xfff0
+#define REPEAT        0xfff1
 #define OS_GUI        0xfff2
 #define OS_SFT        0xfff3
 #define OS_ALT        0xfff4
@@ -137,13 +138,13 @@
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     APP_WIN, HIST_BK, TAB_LT,  TAB_RT,  HIST_FW, \
     OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     CAP_WRD, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  \
-                      XXXXXXX, _HELD_,  MO(FUN),     XXXXXXX, KC_ESC,  XXXXXXX
+                      XXXXXXX, _HELD_,  MO(FUN),     KC_ENT,  REPEAT,  XXXXXXX
 
 #define _NUM \
-    KC_PLUS, KC_SLSH, KC_ASTR, KC_MINS, XXXXXXX,     XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX, \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX, \
     OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     XXXXXXX, KC_4,    KC_5,    KC_6,    KC_DOT,  \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_1,    KC_2,    KC_3,    XXXXXXX, \
-                      XXXXXXX, MO(FUN), _HELD_,      LT(FUN,KC_DOT), KC_0,    XXXXXXX
+                      XXXXXXX, MO(FUN), _HELD_,      KC_DOT,  KC_0,    XXXXXXX
 
 #define _FUN \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_F15,  \

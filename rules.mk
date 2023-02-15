@@ -18,6 +18,7 @@ MUSIC_ENABLE = no
 SRC += features/custom_shift_keys.c
 SRC += features/layer_lock.c
 SRC += features/oneshot.c
+SRC += features/repeat_key.c
 
 SRC += features/combos.c
 COMBO_ENABLE = yes
