@@ -47,6 +47,7 @@ else
     #define FIRMWARE_VERSION u8"J4q60/KJZ9l"
     #define RGB_MATRIX_STARTUP_SPD 60
     #undef BILATERAL_COMBINATIONS
+    #undef REPEAT_KEY_ENABLE
 #endif
 
 #if defined(KEYBOARD_bm16s)
