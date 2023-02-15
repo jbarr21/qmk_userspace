@@ -36,6 +36,9 @@ else ifeq ($(KEYBOARD), moonlander)
 else ifeq ($(KEYBOARD), fingerpunch/sweeeeep)
     SRC += features/oled.c
     RGBLIGHT_ENABLE=yes
+    RGB_MATRIX_ENABLE=no
+    FP_STARTUP_ANIMATION_DISABLE=yes
+    FP_LAYER_LIGHTING_DISABLE=yes
     OLED_ENABLE=yes
     DYNAMIC_MACRO_ENABLE=no
 endif
