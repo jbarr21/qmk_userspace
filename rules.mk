@@ -15,6 +15,7 @@ GRAVE_ESC_ENABLE = no
 MAGIC_ENABLE = no
 MUSIC_ENABLE = no
 
+SRC += features/achordion.c
 SRC += features/custom_shift_keys.c
 SRC += features/layer_lock.c
 SRC += features/oneshot.c

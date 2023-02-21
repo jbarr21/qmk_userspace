@@ -1,5 +1,6 @@
 #pragma once
 
+#define ACHORDION_ENABLE
 #define REPEAT_KEY_ENABLE
 #define CUSTOM_SHIFT_KEYS_ENABLE
 #define HRM_ENABLE

@@ -1,5 +1,6 @@
 #include "jbarr21.h"
 #include "layout.h"
+#include "features/achordion.h"
 #include "features/custom_shift_keys.h"
 #include "features/oneshot.h"
 #include "features/layer_lock.h"
@@ -57,6 +58,10 @@ oneshot_state os_cmd_state = os_up_unqueued;
 #endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    #ifdef ACHORDION_ENABLE
+    if (!process_achordion(keycode, record)) { return false; }
+    #endif
+
     #ifdef LAYER_LOCK_ENABLE
     if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
     #endif
@@ -78,6 +83,47 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     return true;
 }
+
+#ifdef ACHORDION_ENABLE
+void matrix_scan_user(void) {
+  achordion_task();
+}
+
+bool achordion_chord(uint16_t tap_hold_keycode,
+                     keyrecord_t* tap_hold_record,
+                     uint16_t other_keycode,
+                     keyrecord_t* other_record) {
+   
+  switch (tap_hold_keycode) {
+    // Left thumb combo
+    case TH_L1:  
+      if (other_keycode == TH_L2) { return true; }
+      break;
+    case TH_L2:
+      if (other_keycode == TH_L1) { return true; }
+      break;
+    
+    // Right thumb combo
+    case TH_R1:  
+      if (other_keycode == TH_R3) { return true; }
+      break;
+    case TH_R3:
+      if (other_keycode == TH_R1) { return true; }
+      break;
+  }
+  return achordion_opposite_hands(tap_hold_record, other_record);
+}
+
+uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+  switch (tap_hold_keycode) {
+    case TH_R1:  // allow same-hand symbols
+    case TH_R2:  // allow same-hand shift
+      return 0;  // Bypass Achordion for these keys.
+  }
+
+  return 800;  // Otherwise use a timeout of 800 ms.
+}
+#endif
 
 #ifdef TAPPING_TERM_PER_KEY
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
