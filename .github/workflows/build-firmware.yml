@@ -10,7 +10,9 @@ jobs:
     uses: jbarr21/keymap-display/.github/workflows/render-keymap.yml@main
     with:
       keymap_type: qmk
+      output_type: kd
       keymap_path: layout.h
+      keymap_json_path: keymaps/keymap.json
 
   build:
     runs-on: ubuntu-latest
