@@ -4,7 +4,7 @@
 
 // layer indices
 #define DEF 0
-#define SYM 1 
+#define SYM 1
 #define NAV 2
 #define NUM 3
 #define FUN 4
@@ -15,15 +15,6 @@
 // layer toggles
 #define LA_SYM MO(SYM)
 #define LA_NAV MO(NAV)
-
-// custom keycodes
-#define _HELD_        XXXXXXX
-#define LLOCK         0xfff0
-#define REPEAT        0xfff1
-#define OS_GUI        0xfff2
-#define OS_SFT        0xfff3
-#define OS_ALT        0xfff4
-#define OS_CTL        0xfff5
 
 #ifdef LEGACY_CAPS_WORD_ENABLE
   #define CAP_WRD CAPS_WORD
@@ -67,46 +58,58 @@
 #define OSM_HYP OSM(MOD_HYPR)
 #define OSM_MEH OSM(MOD_MEH)
 
-// Bluetooth placeholders
-#define BT_SEL0 XXXXXXX
-#define BT_SEL1 XXXXXXX
-#define BT_SEL2 XXXXXXX
-#define BT_SEL3 XXXXXXX
-#define BT_CLR  XXXXXXX
-#define OUT_TOG XXXXXXX
-#define EP_TOG  XXXXXXX
+#ifdef KEYMAP_DISPLAY
+    // Ensure that custom keys are undefined so they display as labels
+    #define _HELD_  KC_HELD
+#else
+    #define _HELD_  XXXXXXX
 
-// OS X shortcuts
-#define UNDO    G(KC_Z)
-#define REDO    G(S(KC_Z))
-#define CUT     G(KC_X)
-#define COPY    G(KC_C)
-#define PASTE   G(KC_V)
-#define CLOSE   G(KC_W)
+    // custom keycodes
+    #define KC_RPT   0xfff0
+    #define KC_LLCK  0xfff1
+    #define OS_GUI   0xfff2
+    #define OS_SFT   0xfff3
+    #define OS_ALT   0xfff4
+    #define OS_CTL   0xfff5
 
-#define VIMAC    G(S(KC_SPC))
-#define ALFR     G(KC_SPC)
-#define CTXS     A(KC_TAB)
-#define HIST_BK  G(KC_LBRC)
-#define HIST_FW  G(KC_RBRC)
-#define TAB_LT   S(G(KC_LBRC))
-#define TAB_RT   S(G(KC_RBRC))
-#define APP_WIN  G(KC_GRV)
-#define TOG_SCR  KC_F19
+    // Bluetooth placeholders
+    #define BT_SEL0  XXXXXXX
+    #define BT_SEL1  XXXXXXX
+    #define BT_SEL2  XXXXXXX
+    #define BT_SEL3  XXXXXXX
+    #define BT_CLR   XXXXXXX
+    #define OUT_TOG  XXXXXXX
+    #define EP_TOG   XXXXXXX
 
-#define KC_MOU_EMOJ TD(DANCE_0)
-#define KC_IDE_ALFR TD(DANCE_1)
+    // OS X shortcuts
+    #define UNDO     G(KC_Z)
+    #define REDO     G(S(KC_Z))
+    #define CUT      G(KC_X)
+    #define COPY     G(KC_C)
+    #define PASTE    G(KC_V)
+    #define CLOSE    G(KC_W)
 
-// IJ shortcuts
-#define CLS_FUN  G(KC_F12)
-#define FND_USE  A(KC_F7)
-#define RENAME   S(KC_F6)
-#define BRK_PT   G(KC_F8)
-#define DBG_OVR  KC_F8
-#define DBG_IN   KC_F7
-#define DBG_OUT  S(KC_F8)
-#define DBG_RES  A(G(KC_R))
-#define DBG_EVL  A(KC_F8)
+    #define VIMAC    G(S(KC_SPC))
+    #define ALFR     G(KC_SPC)
+    #define CTXS     A(KC_TAB)
+    #define HIST_BK  G(KC_LBRC)
+    #define HIST_FW  G(KC_RBRC)
+    #define TAB_LT   S(G(KC_LBRC))
+    #define TAB_RT   S(G(KC_RBRC))
+    #define APP_WIN  G(KC_GRV)
+    #define TOG_SCR  KC_F19
+
+    // IJ shortcuts
+    #define CLS_FUN  G(KC_F12)
+    #define FND_USE  A(KC_F7)
+    #define RENAME   S(KC_F6)
+    #define BRK_PT   G(KC_F8)
+    #define DBG_OVR  KC_F8
+    #define DBG_IN   KC_F7
+    #define DBG_OUT  S(KC_F8)
+    #define DBG_RES  A(G(KC_R))
+    #define DBG_EVL  A(KC_F8)
+#endif
 
 // Layout aliases
 #define LAYOUT_sweeeeep_w(...)         LAYOUT_sweeeeep(__VA_ARGS__)
@@ -138,7 +141,7 @@
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     APP_WIN, HIST_BK, TAB_LT,  TAB_RT,  HIST_FW, \
     OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     CAP_WRD, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  \
-                      XXXXXXX, _HELD_,  MO(FUN),     KC_ENT,  REPEAT,  XXXXXXX
+                      XXXXXXX, _HELD_,  MO(FUN),     KC_ENT,  KC_RPT,  XXXXXXX
 
 #define _NUM \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX, \
@@ -180,7 +183,7 @@
 ) \
     KC_NO,  k01, k02, k03, k04, k05,    k06, k07, k08, k09, k10, KC_BSLS, \
     KC_ESC, k11, k12, k13, k14, k15,    k16, k17, k18, k19, k20, KC_QUOT, \
-    KC_NO,  k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, LLOCK,   \
+    KC_NO,  k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, KC_LLCK,   \
                       k31, k32, k33,    k34, k35, k36
 
 // 3x5_3 to moonlander conversion
