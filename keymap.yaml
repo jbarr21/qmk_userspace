@@ -1,0 +1,51 @@
+layers:
+  DEF:
+    - Q
+    - W
+    - F
+    - P
+    - G
+    - J
+    - L
+    - U
+    - Y
+    - ;
+    - {t: A, h: LCTL}
+    - {t: R, h: LALT}
+    - {t: S, h: LSFT}
+    - {t: T, h: LGUI}
+    - D
+    - H
+    - {t: N, h: RGUI}
+    - {t: E, h: RSFT}
+    - {t: I, h: LALT}
+    - {t: O, h: RCTL}
+    - Z
+    - X
+    - C
+    - V
+    - B
+    - K
+    - M
+    - ','
+    - .
+    - /
+    - {t: ESC, h: MOU}
+    - {t: BSPC, h: NAV}
+    - {t: TAB, h: NUM}
+    - {t: ENT, h: RSFT}
+    - {t: SPC, h: SYM}
+    - {t: IDE, h: sticky}
+  SYM: ['!', '@', '#', $, '%', ^, '&', '*', '"', '''', +, _, '=', '-', '`', '|', {t: LGUI, h: sticky}, {t: LSFT, h: sticky}, {t: LALT, h: sticky}, {t: LCTL, h: sticky}, <, '[', '{', (, '~', \, ), '}', ']', '>', '', ESC, ':', '', {type: held}, MED]
+  NAV: ['', '', '', '', '', APP WIN, HIST BK, TAB LT, TAB RT, HIST FW, {t: LCTL, h: sticky}, {t: LALT, h: sticky}, {t: LSFT, h: sticky}, {t: LGUI, h: sticky}, '', CAP WRD, LEFT, DOWN, UP, RGHT, '', '', '', '', '', INS, HOME, PGDN, PGUP, END, '', {type: held}, FUN, ENT, RPT, '']
+  NUM: ['', '', '', '', '', '', '7', '8', '9', '', {t: LCTL, h: sticky}, {t: LALT, h: sticky}, {t: LSFT, h: sticky}, {t: LGUI, h: sticky}, '', '', '4', '5', '6', ., '', '', '', '', '', '', '1', '2', '3', '', '', FUN, {type: held}, ., '0', '']
+  FUN: ['', '', '', '', '', F12, F7, F8, F9, F15, {t: LCTL, h: sticky}, {t: LALT, h: sticky}, {t: LSFT, h: sticky}, {t: LGUI, h: sticky}, '', F11, F4, F5, F6, F14, '', '', '', '', '', F10, F1, F2, F3, F13, QK BOOT, {type: held}, {type: held}, '', '', QK BOOT]
+  IDE: ['', '', '', '', '', '', A, S, W, D, {t: LCTL, h: sticky}, CLS FUN, FND USE, RENAME, BRK PT, '', H, J, K, L, DBG OVR, DBG IN, DBG OUT, DBG RES, DBG EVL, '', '', '', '', '', DM REC1, DM RSTP, DM PLY1, '', MED, {type: held}]
+  MOU: ['', '', '', '', '', '', '', '', '', '', {t: LCTL, h: sticky}, {t: LALT, h: sticky}, {t: LSFT, h: sticky}, {t: LGUI, h: sticky}, '', F16, MS L, MS D, MS U, MS R, '', '', '', '', '', '', WH L, WH D, WH U, WH R, {type: held}, '', '', '', BTN1, BTN2]
+  MED: [RGB VAI, RGB SAI, RGB HUI, RGB MOD, RGB TOG, '', '', '', '', QK BOOT, MPRV, VOLD, VOLU, MNXT, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', MPLY, MUTE, '', {type: held}, {type: held}]
+combos:
+  - {p: [ 1, 2], k: "Hyper", l: ["DEF"]}
+  - {p: [ 7, 8], k: "Meh",   l: ["DEF"]}
+  - {p: [ 2, 7], k: "Caps Wrd", l: ["DEF"], a: top}
+  - {p: [ 14, 15], k: "Alfred", l: ["DEF"], a: top}
+  - {p: [ 23, 26], k: "Alfred", l: ["DEF"], a: top}
