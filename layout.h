@@ -32,16 +32,7 @@
 #endif
 
 // home row mods
-#ifdef HRM_ENABLE
-  #define HR_A LCTL_T(KC_A)
-  #define HR_R LALT_T(KC_R)
-  #define HR_S LSFT_T(KC_S)
-  #define HR_T LGUI_T(KC_T)
-  #define HR_N RGUI_T(KC_N)
-  #define HR_E RSFT_T(KC_E)
-  #define HR_I LALT_T(KC_I)
-  #define HR_O RCTL_T(KC_O)
-#else
+#ifdef HRM_DISABLE
   #define HR_A KC_A
   #define HR_R KC_R
   #define HR_S KC_S
@@ -50,6 +41,15 @@
   #define HR_E KC_E
   #define HR_I KC_I
   #define HR_O KC_O
+#else
+  #define HR_A LCTL_T(KC_A)
+  #define HR_R LALT_T(KC_R)
+  #define HR_S LSFT_T(KC_S)
+  #define HR_T LGUI_T(KC_T)
+  #define HR_N RGUI_T(KC_N)
+  #define HR_E RSFT_T(KC_E)
+  #define HR_I LALT_T(KC_I)
+  #define HR_O RCTL_T(KC_O)
 #endif
 
 // one shot mods

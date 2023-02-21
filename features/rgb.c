@@ -20,7 +20,7 @@ void keyboard_post_init_user(void) {
 #define WHITE    {  0,  0,255}
 #define RED      {  0,255,255}
 
-#ifdef HRM_ENABLE
+#ifndef HRM_DISABLE
 #define HR REDPNK       
 #else
 #define HR WHITE       
