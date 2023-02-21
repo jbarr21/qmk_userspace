@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+../keymap-display/scripts/json2yaml keymaps/keymap.json layout.h | yq 'del(.layout)' | keymap draw -o '{split: true, rows: 3, columns: 5, thumbs: 3}' - > /tmp/keymap.svg && cairosvg /tmp/keymap.svg -o /tmp/keymap.png

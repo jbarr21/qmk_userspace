@@ -33,6 +33,4 @@
 
 // #define RGB_LAYER C_RGB_ML(RGB_DEF)
 
-
-
   // [0] = { RGB_moonlander_w(RGB_LAYER) },
