@@ -78,7 +78,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     #endif
 
     #ifdef REPEAT_KEY_ENABLE
-    if (!process_repeat_key(keycode, record, REPEAT)) { return false; }
+    if (!process_repeat_key(keycode, record, KC_RPT)) { return false; }
     #endif
 
     return true;
