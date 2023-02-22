@@ -63,7 +63,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     #endif
 
     #ifdef LAYER_LOCK_ENABLE
-    if (!process_layer_lock(keycode, record, LLOCK)) { return false; }
+    if (!process_layer_lock(keycode, record, KC_LLCK)) { return false; }
     #endif
 
     #ifdef CUSTOM_SHIFT_KEYS_ENABLE

@@ -32,12 +32,14 @@
     #define COMBO_TERM 50
 #endif
 
-#define FP_DISABLE_CUSTOM_KEYCODES
-#define FP_STARTUP_ANIMATION_DISABLE
-#define FP_LAYER_LIGHTING_DISABLE
-#define FP_LAYER_LIGHTING_DYNAMIC_BASE_LAYER_DISABLE
-#if defined(KEYBOARD_sweeeeep)
-else
+#if defined(KEYBOARD_fingerpunch_sweeeeep)
+    #define FP_DISABLE_CUSTOM_KEYCODES
+    #define FP_STARTUP_ANIMATION_DISABLE
+    #define FP_LAYER_LIGHTING_DISABLE
+    #define FP_LAYER_LIGHTING_DYNAMIC_BASE_LAYER_DISABLE
+    #undef REPEAT_KEY_ENABLE
+    #undef ACHORDION_ENABLE
+#else
     #define LAYER_LOCK_ENABLE
 #endif
 
@@ -48,6 +50,7 @@ else
     #define RGB_MATRIX_STARTUP_SPD 60
     #undef BILATERAL_COMBINATIONS
     #undef REPEAT_KEY_ENABLE
+    #undef ACHORDION_ENABLE
 #endif
 
 #if defined(KEYBOARD_bm16s)

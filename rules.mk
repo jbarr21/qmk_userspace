@@ -15,11 +15,15 @@ GRAVE_ESC_ENABLE = no
 MAGIC_ENABLE = no
 MUSIC_ENABLE = no
 
-SRC += features/achordion.c
 SRC += features/custom_shift_keys.c
 SRC += features/layer_lock.c
 SRC += features/oneshot.c
-ifneq ($(KEYBOARD), moonlander)
+
+ifeq ($(KEYBOARD), moonlander)
+else ifeq ($(KEYBOARD), fingerpunch/sweeeeep)
+	SRC += features/repeat_key.c
+else 
+	SRC += features/achordion.c
 	SRC += features/repeat_key.c
 endif
 
