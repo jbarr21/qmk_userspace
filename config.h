@@ -46,6 +46,7 @@
 #if defined(KEYBOARD_moonlander)
     #define LEGACY_CAPS_WORD_ENABLE
     #define ORYX_CONFIGURATOR
+    #define ORYX_ENABLE
     #define FIRMWARE_VERSION u8"J4q60/KJZ9l"
     #define RGB_MATRIX_STARTUP_SPD 60
     #undef BILATERAL_COMBINATIONS
