@@ -1,7 +1,7 @@
 {
     "author": "",
     "documentation": "Wrapper based keymap",
-    "keyboard": "crkbd/rev1",
+    "keyboard": "cantor",
     "keymap": "jbarr21",
     "layout": "LAYOUT_split_3x5_3",
     "layers": [
