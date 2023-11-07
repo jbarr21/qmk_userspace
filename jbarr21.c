@@ -143,8 +143,17 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 }
 #endif
 
+#ifdef QUICK_TAP_TERM_PER_KEY
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+    return IS_HRM(keycode) ? 0 : QUICK_TAP_TERM;
+}
+#else
+
 #ifdef TAPPING_FORCE_HOLD_PER_KEY
+// can remove when upgrade moonlander
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     return IS_HRM(keycode) ? false : true;
 }
+#endif
+
 #endif

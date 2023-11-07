@@ -10,7 +10,12 @@
 #define TAPPING_TERM_PER_KEY
 
 #define IGNORE_MOD_TAP_INTERRUPT
-#define TAPPING_FORCE_HOLD_PER_KEY
+#if defined(KEYBOARD_moonlander)
+    // can remove when moonlander is upgraded
+    #define TAPPING_FORCE_HOLD_PER_KEY
+#else
+    #define QUICK_TAP_TERM_PER_KEY
+#endif
 #define PERMISSIVE_HOLD_PER_KEY
 
 #define ONESHOT_TIMEOUT 5000

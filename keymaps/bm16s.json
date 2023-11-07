@@ -1,6 +1,6 @@
 {
   "author": "",
-	"documentation": "Wrapper based keymap",
+  "documentation": "Wrapper based keymap",
   "keyboard": "kprepublic/bm16s",
   "keymap": "jbarr21",
   "layout": "LAYOUT_ortho_4x4",
@@ -29,8 +29,8 @@
       "KC_TRNS",
       "KC_VOLU",
       "BL_TOGG",
-      "BL_DEC",
-      "BL_INC",
+      "BL_DOWN",
+      "BL_UP",
       "KC_VOLD",
       "RGB_TOG",
       "RGB_MOD",
