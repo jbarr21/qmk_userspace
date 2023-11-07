@@ -22,6 +22,12 @@
   #define CAP_WRD CW_TOGG
 #endif
 
+#ifdef REPEAT_KEY_ENABLE
+  #define REPEAT QK_REP
+#else
+  #define REPEAT XXXXXXX
+#endif
+
 // home row mods
 #ifdef HRM_DISABLE
   #define HR_A KC_A
@@ -65,7 +71,6 @@
     #define _HELD_  XXXXXXX
 
     // custom keycodes
-    #define KC_RPT   0xfff0
     #define KC_LLCK  0xfff1
     #define OS_GUI   0xfff2
     #define OS_SFT   0xfff3
@@ -141,7 +146,7 @@
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     APP_WIN, HIST_BK, TAB_LT,  TAB_RT,  HIST_FW, \
     OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     CAP_WRD, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  \
-                      XXXXXXX, _HELD_,  MO(FUN),     KC_ENT,  KC_RPT,  XXXXXXX
+                      XXXXXXX, _HELD_,  MO(FUN),     KC_ENT,  REPEAT,  XXXXXXX
 
 #define _NUM \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX, \

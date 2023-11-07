@@ -4,7 +4,6 @@
 #include "features/custom_shift_keys.h"
 #include "features/oneshot.h"
 #include "features/layer_lock.h"
-#include "features/repeat_key.h"
 
 const custom_shift_key_t custom_shift_keys[] = {
   {LT(NAV, KC_BSPC), KC_DEL},  // Shift BS is DEL
@@ -77,10 +76,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     update_oneshot(&os_cmd_state, KC_LCMD, OS_GUI, keycode, record);
     #endif
 
-    #ifdef REPEAT_KEY_ENABLE
-    if (!process_repeat_key(keycode, record, KC_RPT)) { return false; }
-    #endif
-
     return true;
 }
 
@@ -134,6 +129,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         return TAPPING_TERM + 100;
     }
     return TAPPING_TERM;
+}
+#endif
+
+#ifdef HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    return (keycode >= QK_MOD_TAP) && (keycode <= QK_MOD_TAP_MAX) && !(IS_HRM(keycode));
 }
 #endif
 
