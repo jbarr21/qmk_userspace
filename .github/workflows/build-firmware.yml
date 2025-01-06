@@ -63,6 +63,8 @@ jobs:
     - name: Symlink fingerpunch boards
       if: matrix.keyboard == 'sweeeeep'
       run: ln -s $GITHUB_WORKSPACE/qmk_firmware_fp/keyboards/fingerpunch keyboards/fingerpunch
+    - name: Install qmk_cli deps
+      run: python3 -m pip install -r requirements.txt
     - name: Build firmware
       run: qmk compile -c "users/${{ github.actor }}/keymaps/${{ matrix.keyboard }}.json"
     - name: Upload firmware
