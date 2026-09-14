@@ -46,6 +46,10 @@ ifeq ($(KEYBOARD), fingerpunch/sweeeeep)
   DYNAMIC_MACRO_ENABLE=no
 endif
 
+ifeq ($(KEYBOARD), crkbd/rev1)
+  RGB_MATRIX_ENABLE = no
+endif
+
 ifeq ($(IS_MOONLANDER),$(TRUE))
     WEBUSB_ENABLE = yes
     ORYX_ENABLE = yes
