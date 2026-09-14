@@ -30,8 +30,11 @@ ifeq ($(IS_MOONLANDER),$(FALSE))
 endif
 
 SRC += features/custom_shift_keys.c
-SRC += features/layer_lock.c
 SRC += features/oneshot.c
+
+ifneq ($(KEYBOARD), fingerpunch/sweeeeep)
+  LAYER_LOCK_ENABLE = yes
+endif
 
 ifeq ($(IS_MOONLANDER),$(FALSE))
   ifneq ($(KEYBOARD),fingerpunch/sweeeeep)

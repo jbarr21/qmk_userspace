@@ -3,7 +3,6 @@
 #include "features/achordion.h"
 #include "features/custom_shift_keys.h"
 #include "features/oneshot.h"
-#include "features/layer_lock.h"
 
 const custom_shift_key_t custom_shift_keys[] = {
   {LT(NAV, KC_BSPC), KC_DEL},  // Shift BS is DEL
@@ -59,10 +58,6 @@ oneshot_state os_cmd_state = os_up_unqueued;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     #ifdef ACHORDION_ENABLE
     if (!process_achordion(keycode, record)) { return false; }
-    #endif
-
-    #ifdef LAYER_LOCK_ENABLE
-    if (!process_layer_lock(keycode, record, KC_LLCK)) { return false; }
     #endif
 
     #ifdef CUSTOM_SHIFT_KEYS_ENABLE

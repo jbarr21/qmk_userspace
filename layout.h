@@ -71,7 +71,6 @@
     #define _HELD_  XXXXXXX
 
     // custom keycodes
-    #define KC_LLCK  0xfff1
     #define OS_GUI   0xfff2
     #define OS_SFT   0xfff3
     #define OS_ALT   0xfff4
@@ -202,7 +201,7 @@
 ) \
     KC_NO,  k01, k02, k03, k04, k05,    k06, k07, k08, k09, k10, KC_BSLS, \
     KC_ESC, k11, k12, k13, k14, k15,    k16, k17, k18, k19, k20, KC_QUOT, \
-    KC_NO,  k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, KC_LLCK,   \
+    KC_NO,  k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, QK_LLCK,   \
                       k31, k32, k33,    k34, k35, k36
 
 // 3x5_3 to moonlander conversion

@@ -42,8 +42,6 @@
     #define FP_LAYER_LIGHTING_DISABLE
     #define FP_LAYER_LIGHTING_DYNAMIC_BASE_LAYER_DISABLE
     #undef ACHORDION_ENABLE
-#else
-    #define LAYER_LOCK_ENABLE
 #endif
 
 #if defined(KEYBOARD_moonlander)
