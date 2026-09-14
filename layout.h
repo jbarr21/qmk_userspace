@@ -114,6 +114,20 @@
     #define DBG_OUT  S(KC_F8)
     #define DBG_RES  A(G(KC_R))
     #define DBG_EVL  A(KC_F8)
+
+    #if defined(RGB_MATRIX_ENABLE) || defined(RGBLIGHT_ENABLE)
+      #define RGBWVAI RGB_VAI
+      #define RGBWSAI RGB_SAI
+      #define RGBWHUI RGB_HUI
+      #define RGBWMOD RGB_MOD
+      #define RGBWTOG RGB_TOG 
+    #else
+      #define RGBWVAI XXXXXXX
+      #define RGBWSAI XXXXXXX
+      #define RGBWHUI XXXXXXX
+      #define RGBWMOD XXXXXXX
+      #define RGBWTOG XXXXXXX 
+    #endif
 #endif
 
 // Layout aliases
@@ -173,7 +187,7 @@
                       _HELD_,  XXXXXXX, XXXXXXX,     XXXXXXX, KC_BTN1, KC_BTN2
 
 #define _MED \
-    RGB_VAI, RGB_SAI, RGB_HUI, RGB_MOD, RGB_TOG,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT, \
+    RGBWVAI, RGBWSAI, RGBWHUI, RGBWMOD, RGBWTOG,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT, \
     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, EP_TOG,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
     BT_CLR,  BT_SEL2, BT_SEL1, BT_SEL0, OUT_TOG,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
                       XXXXXXX, KC_MPLY, KC_MUTE,     XXXXXXX, _HELD_,  _HELD_
