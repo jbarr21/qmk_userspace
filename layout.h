@@ -114,18 +114,24 @@
     #define DBG_RES  A(G(KC_R))
     #define DBG_EVL  A(KC_F8)
 
-    #if defined(RGB_MATRIX_ENABLE) || defined(RGBLIGHT_ENABLE)
-      #define RGBWVAI RGB_VAI
-      #define RGBWSAI RGB_SAI
-      #define RGBWHUI RGB_HUI
-      #define RGBWMOD RGB_MOD
-      #define RGBWTOG RGB_TOG 
+    #if defined(RGB_MATRIX_ENABLE)
+      #define RGBWVAI RM_VALU
+      #define RGBWSAI RM_SATU
+      #define RGBWHUI RM_HUEU
+      #define RGBWMOD RM_NEXT
+      #define RGBWTOG RM_TOGG
+    #elif defined(RGBLIGHT_ENABLE)
+      #define RGBWVAI UG_VALU
+      #define RGBWSAI UG_SATU
+      #define RGBWHUI UG_HUEU
+      #define RGBWMOD UG_NEXT
+      #define RGBWTOG UG_TOGG
     #else
       #define RGBWVAI XXXXXXX
       #define RGBWSAI XXXXXXX
       #define RGBWHUI XXXXXXX
       #define RGBWMOD XXXXXXX
-      #define RGBWTOG XXXXXXX 
+      #define RGBWTOG XXXXXXX
     #endif
 #endif
 
