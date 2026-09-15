@@ -1,18 +1,21 @@
 {
-	"author": "",
-	"documentation": "Wrapper based keymap",
-	"keyboard": "pikatea",
-	"keymap": "jbarr21",
-	"layout": "LAYOUT",
-	"layers": [
-		[
-            "KC_NO",         
-            "KC_NO",         
-		    "KC_MPRV",
-		    "KC_MPLY",
-		    "KC_MNXT"
-		]
-	],
-	"notes": "",
-	"version": 1
+  "author": "",
+  "documentation": "Wrapper based keymap",
+  "keyboard": "pikatea/pikatea_macropad_gb4",
+  "keymap": "jbarr21",
+  "layout": "LAYOUT_all",
+  "layers": [
+    [
+      "KC_NO",
+      "KC_NO",
+      "KC_MPRV",
+      "KC_MPLY",
+      "KC_MNXT",
+      "KC_MUTE",
+      "KC_NO",
+      "KC_NO"
+    ]
+  ],
+  "notes": "",
+  "version": 1
 }
