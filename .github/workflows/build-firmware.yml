@@ -56,15 +56,6 @@ jobs:
         ref: 93b2b9ec3368f86c5eb5a2e3f934049f8daef885 # firmware25
         persist-credentials: false
         submodules: recursive
-    - name: Checkout Beekeeb/QMK
-      if: matrix.keyboard == 'piantor_pro'
-      uses: actions/checkout@v3
-      with:
-        repository: beekeeb/vial-qmk-piantor-pro
-        path: 'qmk_firmware_bk'
-        ref: 5b6e44c2f5575e96b8c6d3c63b8fa6bd3f7283ac # 2/27/24
-        persist-credentials: false
-        submodules: recursive
     - name: Checkout Fingerpunch/QMK
       if: matrix.keyboard == 'sweeeeep'
       uses: actions/checkout@v3
@@ -79,9 +70,6 @@ jobs:
       with:
         path: users/${{ github.actor }}
         persist-credentials: false
-    - name: Symlink beekeeb boards
-      if: matrix.keyboard == 'piantor_pro'
-      run: ln -s $GITHUB_WORKSPACE/qmk_firmware_bk/keyboards/beekeeb/piantor_pro keyboards/beekeeb/piantor_pro
     - name: Symlink fingerpunch boards
       if: matrix.keyboard == 'sweeeeep'
       run: ln -s $GITHUB_WORKSPACE/qmk_firmware_fp/keyboards/fingerpunch keyboards/fingerpunch
