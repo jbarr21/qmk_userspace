@@ -18,11 +18,11 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    # Moonlander uses QMK CLI v1.1.6 for compatibility with the older ZSA firmware.
+    # Moonlander and Sweeeeep use QMK CLI v1.1.6 for compatibility with their older firmware trees.
     container:
       image: >-
         ${{
-          matrix.keyboard == 'moonlander'
+          (matrix.keyboard == 'moonlander' || matrix.keyboard == 'sweeeeep')
           && 'qmkfm/qmk_cli@sha256:a78acc2b7de1f476f33dd0d069c0e74ddfdb52c18b9a504c7cce32303cfa7aa2'
           || 'qmkfm/qmk_cli:1.2.0'
         }}
@@ -41,7 +41,7 @@ jobs:
     - name: Disable git safe directory checks
       run: git config --global --add safe.directory '*'
     - name: Checkout QMK/QMK
-      if: matrix.keyboard != 'moonlander'
+      if: matrix.keyboard != 'moonlander' && matrix.keyboard != 'sweeeeep'
       uses: actions/checkout@v3
       with:
         repository: qmk/qmk_firmware
@@ -61,7 +61,6 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: jbarr21/qmk_firmware
-        path: 'qmk_firmware_fp'
         ref: fp/9756df8b/sep2026 # Fingerpunch 9756df8b + compatibility fix
         persist-credentials: false
         submodules: recursive
@@ -70,9 +69,6 @@ jobs:
       with:
         path: users/${{ github.actor }}
         persist-credentials: false
-    - name: Symlink fingerpunch boards
-      if: matrix.keyboard == 'sweeeeep'
-      run: ln -s $GITHUB_WORKSPACE/qmk_firmware_fp/keyboards/fingerpunch keyboards/fingerpunch
     - name: Install qmk_cli deps
       run: python3 -m pip install -r requirements.txt
     - name: Build firmware
