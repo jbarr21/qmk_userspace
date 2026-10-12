@@ -18,8 +18,14 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    # QMK CLI v1.1.6
-    container: qmkfm/qmk_cli@sha256:a78acc2b7de1f476f33dd0d069c0e74ddfdb52c18b9a504c7cce32303cfa7aa2
+    # Moonlander uses QMK CLI v1.1.6 for compatibility with the older ZSA firmware.
+    container:
+      image: >-
+        ${{
+          matrix.keyboard == 'moonlander'
+          && 'qmkfm/qmk_cli@sha256:a78acc2b7de1f476f33dd0d069c0e74ddfdb52c18b9a504c7cce32303cfa7aa2'
+          || 'qmkfm/qmk_cli:1.2.0'
+        }}
     strategy:
       fail-fast: false
       matrix:
