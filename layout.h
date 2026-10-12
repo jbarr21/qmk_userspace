@@ -64,6 +64,31 @@
 #define OSM_HYP OSM(MOD_HYPR)
 #define OSM_MEH OSM(MOD_MEH)
 
+// The Fingerpunch fork predates QMK's M_* mouse key names.
+#if defined(KEYBOARD_fingerpunch_sweeeeep)
+  #define M_UP       KC_MS_UP
+  #define M_DOWN     KC_MS_DOWN
+  #define M_LEFT     KC_MS_LEFT
+  #define M_RIGHT    KC_MS_RIGHT
+  #define M_WH_UP    KC_MS_WH_UP
+  #define M_WH_DOWN  KC_MS_WH_DOWN
+  #define M_WH_LEFT  KC_MS_WH_LEFT
+  #define M_WH_RIGHT KC_MS_WH_RIGHT
+  #define M_BTN1     KC_MS_BTN1
+  #define M_BTN2     KC_MS_BTN2
+#else
+  #define M_UP       MS_UP
+  #define M_DOWN     MS_DOWN
+  #define M_LEFT     MS_LEFT
+  #define M_RIGHT    MS_RGHT
+  #define M_WH_UP    MS_WHLU
+  #define M_WH_DOWN  MS_WHLD
+  #define M_WH_LEFT  MS_WHLL
+  #define M_WH_RIGHT MS_WHLR
+  #define M_BTN1     MS_BTN1
+  #define M_BTN2     MS_BTN2
+#endif
+
 #ifdef KEYMAP_DISPLAY
     // Ensure that custom keys are undefined so they display as labels
     #define _HELD_  KC_HELD
@@ -187,9 +212,9 @@
 
 #define _MOU \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-    OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     KC_F16,  MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, \
-                      _HELD_,  XXXXXXX, XXXXXXX,     XXXXXXX, MS_BTN1, MS_BTN2
+    OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     KC_F16,  M_LEFT, M_DOWN, M_UP,   M_RIGHT, \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, M_WH_LEFT, M_WH_DOWN, M_WH_UP, M_WH_RIGHT, \
+                      _HELD_,  XXXXXXX, XXXXXXX,     XXXXXXX, M_BTN1, M_BTN2
 
 #define _MED \
     RGBWVAI, RGBWSAI, RGBWHUI, RGBWMOD, RGBWTOG,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT, \
