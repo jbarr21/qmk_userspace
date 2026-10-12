@@ -62,7 +62,7 @@ jobs:
       with:
         repository: jbarr21/qmk_firmware
         path: 'qmk_firmware_fp'
-        ref: fp/a01533e3/may2023 # 3/11/23
+        ref: fp/9756df8b/sep2026 # Fingerpunch 9756df8b + compatibility fix
         persist-credentials: false
         submodules: recursive
     - name: Checkout userspace
