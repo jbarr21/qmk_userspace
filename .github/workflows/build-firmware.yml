@@ -18,11 +18,11 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    # Moonlander uses QMK CLI v1.1.6 for compatibility with the older ZSA firmware.
+    # Moonlander and Sweeeeep use QMK CLI v1.1.6 for compatibility with their older firmware trees.
     container:
       image: >-
         ${{
-          matrix.keyboard == 'moonlander'
+          (matrix.keyboard == 'moonlander' || matrix.keyboard == 'sweeeeep')
           && 'qmkfm/qmk_cli@sha256:a78acc2b7de1f476f33dd0d069c0e74ddfdb52c18b9a504c7cce32303cfa7aa2'
           || 'qmkfm/qmk_cli:1.2.0'
         }}
@@ -41,11 +41,11 @@ jobs:
     - name: Disable git safe directory checks
       run: git config --global --add safe.directory '*'
     - name: Checkout QMK/QMK
-      if: matrix.keyboard != 'moonlander'
+      if: matrix.keyboard != 'moonlander' && matrix.keyboard != 'sweeeeep'
       uses: actions/checkout@v3
       with:
         repository: qmk/qmk_firmware
-        ref: 0.22.14
+        ref: 0.34.4
         persist-credentials: false
         submodules: recursive
     - name: Checkout ZSA/QMK
@@ -53,16 +53,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: zsa/qmk_firmware
-        ref: 2f50d1ed03058f69d7aeddaae34eb07673f3f9e8 # firmware22
-        persist-credentials: false
-        submodules: recursive
-    - name: Checkout Beekeeb/QMK
-      if: matrix.keyboard == 'piantor_pro'
-      uses: actions/checkout@v3
-      with:
-        repository: beekeeb/vial-qmk-piantor-pro
-        path: 'qmk_firmware_bk'
-        ref: 5b6e44c2f5575e96b8c6d3c63b8fa6bd3f7283ac # 2/27/24
+        ref: 93b2b9ec3368f86c5eb5a2e3f934049f8daef885 # firmware25
         persist-credentials: false
         submodules: recursive
     - name: Checkout Fingerpunch/QMK
@@ -70,8 +61,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: jbarr21/qmk_firmware
-        path: 'qmk_firmware_fp'
-        ref: fp/a01533e3/may2023 # 3/11/23
+        ref: fp/9756df8b/sep2026 # Fingerpunch 9756df8b + compatibility fix
         persist-credentials: false
         submodules: recursive
     - name: Checkout userspace
@@ -79,12 +69,6 @@ jobs:
       with:
         path: users/${{ github.actor }}
         persist-credentials: false
-    - name: Symlink beekeeb boards
-      if: matrix.keyboard == 'piantor_pro'
-      run: ln -s $GITHUB_WORKSPACE/qmk_firmware_bk/keyboards/beekeeb/piantor_pro keyboards/beekeeb/piantor_pro
-    - name: Symlink fingerpunch boards
-      if: matrix.keyboard == 'sweeeeep'
-      run: ln -s $GITHUB_WORKSPACE/qmk_firmware_fp/keyboards/fingerpunch keyboards/fingerpunch
     - name: Install qmk_cli deps
       run: python3 -m pip install -r requirements.txt
     - name: Build firmware

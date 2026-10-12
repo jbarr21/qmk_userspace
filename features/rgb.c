@@ -27,7 +27,7 @@ void keyboard_post_init_user(void) {
 #endif
 
 // left then right hand, top to bottom moving inward
-const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
+const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
     // DEF
     [0] = {
       ______, BLUE, BLUE, GREEN, ______, \
@@ -205,7 +205,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 };
 
 void set_layer_color(int layer) {
-  for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
+  for (int i = 0; i < RGB_MATRIX_LED_COUNT; i++) {
     HSV hsv = {
       .h = pgm_read_byte(&ledmap[layer][i][0]),
       .s = pgm_read_byte(&ledmap[layer][i][1]),
@@ -221,8 +221,8 @@ void set_layer_color(int layer) {
   }
 }
 
-void rgb_matrix_indicators_user(void) {
-  if (/*g_suspend_state ||*/ keyboard_config.disable_layer_led) { return; }
+bool rgb_matrix_indicators_user(void) {
+  if (/*g_suspend_state ||*/ keyboard_config.disable_layer_led) { return true; }
   switch (biton32(layer_state)) {
     case 0:
       set_layer_color(0);
@@ -253,4 +253,5 @@ void rgb_matrix_indicators_user(void) {
       rgb_matrix_set_color_all(0, 0, 0);
     break;
   }
+  return true;
 }

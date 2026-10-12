@@ -8,13 +8,8 @@
 #define TAPPING_TERM 150
 #define TAPPING_TERM_PER_KEY
 
-#if defined(KEYBOARD_moonlander)
-    // can remove when moonlander is upgraded
-    #define TAPPING_FORCE_HOLD_PER_KEY
-#else
-    #define QUICK_TAP_TERM_PER_KEY
-    #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
-#endif
+#define QUICK_TAP_TERM_PER_KEY
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 #define PERMISSIVE_HOLD_PER_KEY
 
 #define ONESHOT_TIMEOUT 5000
@@ -42,8 +37,6 @@
     #define FP_LAYER_LIGHTING_DISABLE
     #define FP_LAYER_LIGHTING_DYNAMIC_BASE_LAYER_DISABLE
     #undef ACHORDION_ENABLE
-#else
-    #define LAYER_LOCK_ENABLE
 #endif
 
 #if defined(KEYBOARD_moonlander)

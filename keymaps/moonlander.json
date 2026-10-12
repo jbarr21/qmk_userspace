@@ -1,7 +1,7 @@
 {
 	"author": "",
 	"documentation": "Wrapper based keymap",
-	"keyboard": "moonlander",
+	"keyboard": "zsa/moonlander/reva",
 	"keymap": "jbarr21",
 	"layout": "LAYOUT_moonlander_w",
 	"layers": [
@@ -14,6 +14,7 @@
         [ "C_ML(_MOU)" ],
         [ "C_ML(_MED)" ]
 	],
+	"modules": ["zsa/defaults", "zsa/oryx"],
 	"notes": "",
 	"version": 1
 }

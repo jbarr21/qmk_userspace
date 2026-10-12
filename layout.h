@@ -64,6 +64,31 @@
 #define OSM_HYP OSM(MOD_HYPR)
 #define OSM_MEH OSM(MOD_MEH)
 
+// The Fingerpunch fork predates QMK's M_* mouse key names.
+#if defined(KEYBOARD_fingerpunch_sweeeeep)
+  #define M_UP       KC_MS_UP
+  #define M_DOWN     KC_MS_DOWN
+  #define M_LEFT     KC_MS_LEFT
+  #define M_RIGHT    KC_MS_RIGHT
+  #define M_WH_UP    KC_MS_WH_UP
+  #define M_WH_DOWN  KC_MS_WH_DOWN
+  #define M_WH_LEFT  KC_MS_WH_LEFT
+  #define M_WH_RIGHT KC_MS_WH_RIGHT
+  #define M_BTN1     KC_MS_BTN1
+  #define M_BTN2     KC_MS_BTN2
+#else
+  #define M_UP       MS_UP
+  #define M_DOWN     MS_DOWN
+  #define M_LEFT     MS_LEFT
+  #define M_RIGHT    MS_RGHT
+  #define M_WH_UP    MS_WHLU
+  #define M_WH_DOWN  MS_WHLD
+  #define M_WH_LEFT  MS_WHLL
+  #define M_WH_RIGHT MS_WHLR
+  #define M_BTN1     MS_BTN1
+  #define M_BTN2     MS_BTN2
+#endif
+
 #ifdef KEYMAP_DISPLAY
     // Ensure that custom keys are undefined so they display as labels
     #define _HELD_  KC_HELD
@@ -71,7 +96,6 @@
     #define _HELD_  XXXXXXX
 
     // custom keycodes
-    #define KC_LLCK  0xfff1
     #define OS_GUI   0xfff2
     #define OS_SFT   0xfff3
     #define OS_ALT   0xfff4
@@ -114,6 +138,26 @@
     #define DBG_OUT  S(KC_F8)
     #define DBG_RES  A(G(KC_R))
     #define DBG_EVL  A(KC_F8)
+
+    #if defined(RGB_MATRIX_ENABLE)
+      #define RGBWVAI RM_VALU
+      #define RGBWSAI RM_SATU
+      #define RGBWHUI RM_HUEU
+      #define RGBWMOD RM_NEXT
+      #define RGBWTOG RM_TOGG
+    #elif defined(RGBLIGHT_ENABLE)
+      #define RGBWVAI UG_VALU
+      #define RGBWSAI UG_SATU
+      #define RGBWHUI UG_HUEU
+      #define RGBWMOD UG_NEXT
+      #define RGBWTOG UG_TOGG
+    #else
+      #define RGBWVAI XXXXXXX
+      #define RGBWSAI XXXXXXX
+      #define RGBWHUI XXXXXXX
+      #define RGBWMOD XXXXXXX
+      #define RGBWTOG XXXXXXX
+    #endif
 #endif
 
 // Layout aliases
@@ -168,12 +212,12 @@
 
 #define _MOU \
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-    OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     KC_F16,  KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, \
-                      _HELD_,  XXXXXXX, XXXXXXX,     XXXXXXX, KC_BTN1, KC_BTN2
+    OSM_CTL, OSM_ALT, OSM_SFT, OSM_GUI, XXXXXXX,     KC_F16,  M_LEFT, M_DOWN, M_UP,   M_RIGHT, \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, M_WH_LEFT, M_WH_DOWN, M_WH_UP, M_WH_RIGHT, \
+                      _HELD_,  XXXXXXX, XXXXXXX,     XXXXXXX, M_BTN1, M_BTN2
 
 #define _MED \
-    RGB_VAI, RGB_SAI, RGB_HUI, RGB_MOD, RGB_TOG,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT, \
+    RGBWVAI, RGBWSAI, RGBWHUI, RGBWMOD, RGBWTOG,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT, \
     KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, EP_TOG,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
     BT_CLR,  BT_SEL2, BT_SEL1, BT_SEL0, OUT_TOG,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
                       XXXXXXX, KC_MPLY, KC_MUTE,     XXXXXXX, _HELD_,  _HELD_
@@ -188,7 +232,7 @@
 ) \
     KC_NO,  k01, k02, k03, k04, k05,    k06, k07, k08, k09, k10, KC_BSLS, \
     KC_ESC, k11, k12, k13, k14, k15,    k16, k17, k18, k19, k20, KC_QUOT, \
-    KC_NO,  k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, KC_LLCK,   \
+    KC_NO,  k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, QK_LLCK,   \
                       k31, k32, k33,    k34, k35, k36
 
 // 3x5_3 to moonlander conversion
