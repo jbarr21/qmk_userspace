@@ -83,9 +83,9 @@ jobs:
     - name: Build firmware
       run: qmk compile -c "users/${{ github.actor }}/keymaps/${{ matrix.keyboard }}.json"
     - name: Upload firmware
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: ${{ github.actor }}_firmware
+        name: ${{ github.actor }}_${{ matrix.keyboard }}_firmware
         path: |
           *.bin
           *.hex
