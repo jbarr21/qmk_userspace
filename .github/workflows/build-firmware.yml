@@ -18,7 +18,8 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    container: qmkfm/qmk_cli
+    # QMK CLI v1.1.6
+    container: qmkfm/qmk_cli@sha256:a78acc2b7de1f476f33dd0d069c0e74ddfdb52c18b9a504c7cce32303cfa7aa2
     strategy:
       fail-fast: false
       matrix:
